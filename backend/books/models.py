@@ -48,3 +48,20 @@ class Book(models.Model):
             return None
         total = sum(r.rating for r in reviews)
         return round(total / reviews.count(), 2)
+
+
+class Review(models.Model):
+    book = models.ForeignKey(
+        Book,
+        on_delete=models.CASCADE,
+        related_name='reviews'
+    )
+    rating = models.PositiveSmallIntegerField()
+    comment = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Review for {self.book.title} — {self.rating}★"
