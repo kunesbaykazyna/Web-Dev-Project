@@ -16,6 +16,8 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/logout/', TokenBlacklistView.as_view(), name='token_blacklist'),
     path('api/profile/', ProfileView.as_view(), name='profile'),
+    path('admin/', admin.site.urls),
+    path('api/', include('books.urls')),
 ]
 
 if settings.DEBUG:
