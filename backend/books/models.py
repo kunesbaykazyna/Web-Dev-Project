@@ -32,6 +32,8 @@ class Book(models.Model):
     cover_image = models.URLField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    objects = BookManager()
+
     class Meta:
         ordering = ['-created_at']
 
