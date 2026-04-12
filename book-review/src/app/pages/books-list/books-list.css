@@ -5,6 +5,10 @@
     padding: 28px 24px;
     gap: 28px;
     align-items: flex-start;
+    background: #f0f4f8;
+    min-height: calc(100vh - 64px);
+    position: relative;
+    z-index: 1;
 }
 
 .sidebar {
@@ -244,6 +248,11 @@
     color: var(--text-muted);
 }
 
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+}
 .books-page {
     min-height: 100vh;
     background-color: white;
@@ -268,4 +277,10 @@
     color: #e74c3c;
     border-radius: var(--radius);
     text-align: center;
+}
+
+:host {
+    display: block;
+    background: #f0f4f8;
+    min-height: 100vh;
 }

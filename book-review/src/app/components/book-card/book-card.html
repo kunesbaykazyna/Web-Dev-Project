@@ -12,15 +12,9 @@
         <div class="card-rating">
             <span class="stars">{{ getStars(book.average_rating) }}</span>
             <span class="rating-val" *ngIf="book.average_rating">{{ book.average_rating }}</span>
-            <span class="rating-count" *ngIf="book.average_rating">(ratings)</span>
         </div>
         <div class="card-tags">
             <span class="tag" *ngIf="book.genre">{{ book.genre }}</span>
-            <span class="tag">Fiction</span>
-        </div>
-        <div class="card-actions">
-            <button class="btn-fav" (click)="$event.stopPropagation()">❤️ {{ book.genre || 'Fiction' }}</button>
-            <button class="btn-remove" (click)="$event.stopPropagation()">Remove</button>
         </div>
     </div>
 </div>
