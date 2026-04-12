@@ -244,6 +244,12 @@
     color: var(--text-muted);
 }
 
+.books-page {
+    min-height: 100vh;
+    background-color: white;
+    padding: 20px;
+}
+
 .spinner {
     width: 36px;
     height: 36px;

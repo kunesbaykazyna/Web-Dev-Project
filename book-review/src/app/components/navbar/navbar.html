@@ -1,0 +1,32 @@
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-left">
+            <a routerLink="/books" class="logo">
+                <span class="logo-icon">📖</span>
+                <span class="logo-text">BookVerse</span>
+            </a>
+            <div class="nav-links">
+                <a routerLink="/books" routerLinkActive="active">Books</a>
+                <a href="#">Authors</a>
+                <a href="#">Genres</a>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <div class="search-wrap">
+                <span class="search-ico">🔍</span>
+                <input type="text" placeholder="Search books, authors..." [(ngModel)]="search" />
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <a href="#" class="btn-signin">Sign In</a>
+            <a href="#" class="btn-start">Get Started</a>
+            <div class="user-chip">
+                <img src="https://i.pravatar.cc/32" alt="avatar" class="avatar" />
+                <span>Anna</span>
+                <span class="chevron">∨</span>
+            </div>
+        </div>
+    </div>
+</nav>
