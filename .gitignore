@@ -1,7 +1,11 @@
 node_modules/
-dist/
 .angular/
-venv/
+dist/
+.vscode/
+.idea/
+
 __pycache__/
-db.sqlite3
+*.pyc
+venv/
 .env
+db.sqlite3

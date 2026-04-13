@@ -1,0 +1,17 @@
+<div class="authors-page">
+    <h1>Authors</h1>
+
+    <p *ngIf="loading">Loading authors...</p>
+    <p *ngIf="error">{{ error }}</p>
+
+    <div class="authors-grid" *ngIf="!loading && !error">
+        <div class="author-card" *ngFor="let author of authors">
+            <h2>{{ author.full_name }}</h2>
+            <p><strong>First name:</strong> {{ author.first_name }}</p>
+            <p><strong>Last name:</strong> {{ author.last_name }}</p>
+            <p><strong>Birth date:</strong> {{ author.birth_date }}</p>
+            <p><strong>Books:</strong> {{ author.book_count }}</p>
+            <p class="bio">{{ author.bio }}</p>
+        </div>
+    </div>
+</div>

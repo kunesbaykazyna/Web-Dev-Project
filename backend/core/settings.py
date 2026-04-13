@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
 
     'users',
+    'books',
+    'django_filters',
+
 ]
 
 MIDDLEWARE = [

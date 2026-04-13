@@ -1,1 +1,48 @@
-<p>book-detail works!</p>
+<div class="page">
+    <a routerLink="/books" class="back-btn">← Назад к списку</a>
+
+    <div class="loading" *ngIf="loading">
+        <div class="spinner"></div>
+        <p>Загружаем книгу...</p>
+    </div>
+
+    <div class="error" *ngIf="error">{{ error }}</div>
+
+    <div class="detail-card" *ngIf="book && !loading">
+        <div class="detail-cover">
+            <img
+                    [src]="book.cover_image || ''"
+                    [alt]="book.title"
+                    onerror="this.src='https://placehold.co/300x420?text=No+Cover'"
+            />
+        </div>
+
+        <div class="detail-info">
+            <span class="genre-badge" *ngIf="book.genre">{{ book.genre }}</span>
+            <h1 class="detail-title">{{ book.title }}</h1>
+            <p class="detail-author">✍️ {{ book.author.full_name }}</p>
+
+            <div class="detail-rating">
+                <span class="stars">{{ getStars(book.average_rating) }}</span>
+                <span *ngIf="book.average_rating" class="rating-num">{{ book.average_rating }}/5</span>
+                <span *ngIf="!book.average_rating" class="no-rating">Нет отзывов</span>
+            </div>
+
+            <div class="meta">
+                <div class="meta-item" *ngIf="book.published_date">
+                    <span class="meta-label">Дата выхода</span>
+                    <span>{{ book.published_date | date:'dd.MM.yyyy' }}</span>
+                </div>
+                <div class="meta-item" *ngIf="book.isbn">
+                    <span class="meta-label">ISBN</span>
+                    <span>{{ book.isbn }}</span>
+                </div>
+            </div>
+
+            <div class="description" *ngIf="book.description">
+                <h3>О книге</h3>
+                <p>{{ book.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
