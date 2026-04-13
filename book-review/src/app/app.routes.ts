@@ -4,10 +4,12 @@ import { BookDetailComponent } from './pages/book-detail/book-detail';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthorsComponent } from './pages/authors/authors';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'authors', component: AuthorsComponent },
     { path: '', redirectTo: 'books', pathMatch: 'full' },
     { path: 'books', component: BooksListComponent },
     { path: 'books/:id', component: BookDetailComponent },

@@ -9,12 +9,12 @@ body {
 }
 
 :root {
-    --primary: #0ab4b4;
+    --primary: #137874;
     --primary-dark: #089090;
     --text: #1a1a2e;
     --text-muted: #888;
     --border: #e8edf2;
-    --bg: #f0f4f8;
+    --bg: #092643;
     --card: #ffffff;
     --radius: 12px;
 }
