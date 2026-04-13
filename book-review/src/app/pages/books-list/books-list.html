@@ -1,85 +1,77 @@
 <div class="books-page">
-    <div class="layout">
-        <aside class="sidebar">
-            <div class="profile-card">
-                <img src="https://i.pravatar.cc/80" alt="avatar" class="profile-avatar" />
-                <div class="profile-name">Anna</div>
-                <div class="profile-email">anna@example.com</div>
-                <button class="btn-profile" type="button">View Profile</button>
+    <main class="main">
+        <div class="main-header">
+            <div>
+                <h1 class="main-title">Books</h1>
+                <p class="main-sub">Browse and review your favorite books.</p>
             </div>
 
-            <nav class="side-nav">
-                <a routerLink="/reviews" class="side-link">💬 My Reviews</a>
-                <a routerLink="/favorites" class="side-link active">❤️ Favorites</a>
-                <a routerLink="/profile" class="side-link">👤 Profile</a>
-            </nav>
-
-            <div class="side-empty">
-                <div class="side-empty-icon">📖</div>
-                <p>No favorites yet</p>
-                <small>You haven't added any books to your favorites.</small>
-                <button class="btn-back" type="button" routerLink="/books">Back to Books</button>
-            </div>
-        </aside>
-
-        <main class="main">
-            <div class="breadcrumb">
-                <span>Books</span>
-                <span class="sep">/</span>
-                <span class="current">Catalog</span>
-            </div>
-
-            <div class="main-header">
-                <div>
-                    <h1 class="main-title">My Favorite Books</h1>
-                    <p class="main-sub">Here's a list of the books you've added to your favorites list.</p>
-                </div>
-                <button class="btn-clear-all" type="button" (click)="clearFilters()">Clear All ›</button>
-            </div>
-
-            <div class="filters-bar">
+            <div class="header-actions">
                 <div class="search-box">
-                    <span>🔍</span>
+                    <span class="search-icon">🔍</span>
                     <input
                             type="text"
-                            placeholder="Search books, authors..."
+                            placeholder="Search by title..."
                             [(ngModel)]="search"
                             (input)="onSearch()"
                     />
                 </div>
 
-                <select [(ngModel)]="selectedGenre" (change)="onFilterChange()">
-                    <option value="">All Genres</option>
-                    <option *ngFor="let g of genres" [value]="g">{{ g }}</option>
-                </select>
+                <button class="btn-clear" type="button" (click)="clearFilters()">
+                    Clear Filters
+                </button>
+            </div>
+        </div>
 
+        <div class="filters-row">
+            <div class="genres-list">
+                <button
+                        class="genre-btn"
+                        type="button"
+                        [class.active]="selectedGenre === ''"
+                        (click)="selectedGenre = ''; onFilterChange()"
+                >
+                    All Genres
+                </button>
+
+                <button
+                        *ngFor="let g of genres"
+                        class="genre-btn"
+                        type="button"
+                        [class.active]="selectedGenre === g"
+                        (click)="selectedGenre = g; onFilterChange()"
+                >
+                    {{ g }}
+                </button>
+            </div>
+
+            <div class="sort-box">
+                <label class="sortby">Sort by:</label>
                 <select [(ngModel)]="selectedOrdering" (change)="onFilterChange()">
-                    <option *ngFor="let o of orderingOptions" [value]="o.value">{{ o.label }}</option>
+                    <option *ngFor="let o of orderingOptions" [value]="o.value">
+                        {{ o.label }}
+                    </option>
                 </select>
             </div>
+        </div>
 
-            <div class="count-label" *ngIf="!loading">
-                Favorites ({{ books.length }})
+        <div class="loading" *ngIf="loading">Loading books...</div>
+
+        <div class="error-box" *ngIf="error && !loading">
+            <p>{{ error }}</p>
+            <button type="button" (click)="loadBooks()">Try again</button>
+        </div>
+
+        <div class="books-grid" *ngIf="!loading && !error">
+            <app-book-card
+                    *ngFor="let book of books"
+                    [book]="book">
+            </app-book-card>
+
+            <div class="empty-grid" *ngIf="books.length === 0">
+                <p>📚 No books found</p>
+                <button type="button" class="btn-clear" (click)="clearFilters()">Reset filters</button>
             </div>
-
-            <div class="loading" *ngIf="loading">
-                <div class="spinner"></div>
-                <p>Loading...</p>
-            </div>
-
-            <div class="error-box" *ngIf="error">{{ error }}</div>
-
-            <div class="books-grid" *ngIf="!loading && !error">
-                <app-book-card
-                        *ngFor="let book of books"
-                        [book]="book">
-                </app-book-card>
-
-                <div class="empty-grid" *ngIf="books.length === 0">
-                    <p>📭 No books found</p>
-                    <button class="btn-clear-all" type="button" (click)="clearFilters()">Reset filters</button>
-                </div>
-            </div>
-        </main>
-    </div>
+        </div>
+    </main>
 </div>
