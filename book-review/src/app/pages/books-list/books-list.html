@@ -55,7 +55,9 @@
             </div>
         </div>
 
-        <div class="loading" *ngIf="loading">Loading books...</div>
+        <div class="books-grid" *ngIf="loading">
+            <div class="book-skeleton" *ngFor="let i of [1,2,3,4,5,6,7,8]"></div>
+        </div>
 
         <div class="error-box" *ngIf="error && !loading">
             <p>{{ error }}</p>

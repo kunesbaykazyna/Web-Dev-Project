@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, skip } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { BookCardComponent } from '../../components/book-card/book-card';
@@ -42,13 +42,15 @@ export class BooksListComponent implements OnInit, OnDestroy {
 
   constructor(
       private bookService: BookService,
-      private searchService: SearchService
+      private searchService: SearchService,
+      private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
     this.loadBooks();
 
     this.searchSubscription = this.searchService.search$.pipe(
+        skip(1),
         debounceTime(300),
         distinctUntilChanged()
     ).subscribe(value => {
@@ -66,6 +68,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
   loadBooks() {
     this.loading = true;
     this.error = '';
+    this.cdr.detectChanges();
 
     this.bookService.getBooks({
       search: this.navbarSearch,
@@ -76,34 +79,29 @@ export class BooksListComponent implements OnInit, OnDestroy {
         this.allBooks = data;
         this.applyTitleFilter();
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: () => {
         this.error = 'Не удалось загрузить книги';
         this.loading = false;
+        this.cdr.detectChanges();
       }
     });
   }
 
   applyTitleFilter() {
     const query = this.search.trim().toLowerCase();
-
     if (!query) {
       this.books = [...this.allBooks];
       return;
     }
-
     this.books = this.allBooks.filter(book =>
         (book.title || '').toLowerCase().includes(query)
     );
   }
 
-  onSearch() {
-    this.applyTitleFilter();
-  }
-
-  onFilterChange() {
-    this.loadBooks();
-  }
+  onSearch() { this.applyTitleFilter(); }
+  onFilterChange() { this.loadBooks(); }
 
   clearFilters() {
     this.search = '';
