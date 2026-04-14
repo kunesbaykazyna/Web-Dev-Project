@@ -17,7 +17,12 @@
         <div class="searchborder1">
             <div class="nav-center1">
                 <div class="search-wrap1">
-                    <input type="text" placeholder="Search books, authors..." [(ngModel)]="search" />
+                    <input
+                            type="text"
+                            placeholder="Search books, authors..."
+                            [(ngModel)]="search"
+                            (ngModelChange)="onSearchChange($event)"
+                    />
                 </div>
             </div>
         </div>

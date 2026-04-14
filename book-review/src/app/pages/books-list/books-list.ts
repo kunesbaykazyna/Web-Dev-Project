@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { BookCardComponent } from '../../components/book-card/book-card';
 import { Book } from '../../models/book.model';
+import { SearchService } from '../../services/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-books-list',
@@ -12,14 +15,20 @@ import { Book } from '../../models/book.model';
   templateUrl: './books-list.html',
   styleUrl: './books-list.css'
 })
-export class BooksListComponent implements OnInit {
+export class BooksListComponent implements OnInit, OnDestroy {
   books: Book[] = [];
+  allBooks: Book[] = [];
+
   loading = false;
   error = '';
 
   search = '';
+  navbarSearch = '';
+
   selectedGenre = '';
   selectedOrdering = '-created_at';
+
+  private searchSubscription!: Subscription;
 
   genres = ['Fantasy', 'Science Fiction', 'Romance', 'Thriller', 'Horror', 'Classic', 'History'];
 
@@ -31,22 +40,41 @@ export class BooksListComponent implements OnInit {
     { value: '-avg_rating', label: 'По рейтингу' },
   ];
 
-  constructor(private bookService: BookService) {}
+  constructor(
+      private bookService: BookService,
+      private searchService: SearchService
+  ) {}
 
   ngOnInit() {
     this.loadBooks();
+
+    this.searchSubscription = this.searchService.search$.pipe(
+        debounceTime(300),
+        distinctUntilChanged()
+    ).subscribe(value => {
+      this.navbarSearch = value;
+      this.loadBooks();
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.searchSubscription) {
+      this.searchSubscription.unsubscribe();
+    }
   }
 
   loadBooks() {
     this.loading = true;
     this.error = '';
+
     this.bookService.getBooks({
-      search: this.search,
+      search: this.navbarSearch,
       genre: this.selectedGenre,
       ordering: this.selectedOrdering
     }).subscribe({
       next: (data) => {
-        this.books = data;
+        this.allBooks = data;
+        this.applyTitleFilter();
         this.loading = false;
       },
       error: () => {
@@ -56,8 +84,21 @@ export class BooksListComponent implements OnInit {
     });
   }
 
+  applyTitleFilter() {
+    const query = this.search.trim().toLowerCase();
+
+    if (!query) {
+      this.books = [...this.allBooks];
+      return;
+    }
+
+    this.books = this.allBooks.filter(book =>
+        (book.title || '').toLowerCase().includes(query)
+    );
+  }
+
   onSearch() {
-    this.loadBooks();
+    this.applyTitleFilter();
   }
 
   onFilterChange() {
@@ -66,8 +107,10 @@ export class BooksListComponent implements OnInit {
 
   clearFilters() {
     this.search = '';
+    this.navbarSearch = '';
     this.selectedGenre = '';
     this.selectedOrdering = '-created_at';
+    this.searchService.setSearch('');
     this.loadBooks();
   }
 }
