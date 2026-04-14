@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'users',
     'books',
     'django_filters',
-
+    'reviews'
 ]
 
 MIDDLEWARE = [
