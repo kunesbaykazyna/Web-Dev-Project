@@ -1,0 +1,42 @@
+<div class="container" *ngIf="book">
+    <div class="book-header">
+        <h1>{{ book.title }}</h1>
+        ...
+    </div>
+
+    <hr>
+
+    <div class="reviews-section">
+        <h3>User Reviews</h3>
+        <div *ngFor="let review of reviews">...</div>
+    </div>
+
+    <hr>
+
+    <div *ngIf="isLoggedIn; else loginMessage" class="add-review">
+        <h4>Leave a Review</h4>
+
+        <div class="form-group">
+            <select [(ngModel)]="newRating">
+                <option [ngValue]="5">5 - Excellent</option>
+                <option [ngValue]="4">4 - Good</option>
+                <option [ngValue]="3">3 - Average</option>
+                <option [ngValue]="2">2 - Poor</option>
+                <option [ngValue]="1">1 - Terrible</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea [(ngModel)]="newComment" placeholder="Write your thoughts here..."></textarea>
+        </div>
+
+        <button (click)="addReview()" [disabled]="!newComment.trim()">Submit Review</button>
+    </div>
+
+    <ng-template #loginMessage>
+        <div class="alert alert-info">
+            Please <a routerLink="/login">log in</a> to leave a review.
+        </div>
+    </ng-template>
+
+</div>

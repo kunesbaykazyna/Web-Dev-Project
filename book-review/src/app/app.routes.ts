@@ -14,7 +14,7 @@ export const routes: Routes = [
     { path: 'books', component: BooksListComponent },
     { path: 'books/:id', component: BookDetailComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
+    { path: 'login', component: LoginComponent },//
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/login', pathMatch: 'full' }

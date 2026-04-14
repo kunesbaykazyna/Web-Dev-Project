@@ -21,12 +21,15 @@ export class AuthService {
       tap(res => {
         localStorage.setItem('token', res.access);
         this.currentUser.set(res.access);
+        localStorage.setItem('username', data.username);
+        this.currentUser.set(data.username);
       })
     );
   }
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     this.currentUser.set(null);
     this.router.navigate(['/login']);
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BookService } from '../../services/book.service';
@@ -18,7 +18,8 @@ export class BookDetailComponent implements OnInit {
 
   constructor(
       private route: ActivatedRoute,
-      private bookService: BookService
+      private bookService: BookService,
+      private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -28,10 +29,12 @@ export class BookDetailComponent implements OnInit {
       next: (data) => {
         this.book = data;
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: () => {
         this.error = 'Книга не найдена';
         this.loading = false;
+        this.cdr.detectChanges();
       }
     });
   }
