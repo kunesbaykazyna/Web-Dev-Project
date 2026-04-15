@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorService, Author } from '../../services/author';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-authors',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './authors.html',
   styleUrl: './authors.css'
 })

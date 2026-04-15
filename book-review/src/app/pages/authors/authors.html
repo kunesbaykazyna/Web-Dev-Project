@@ -5,13 +5,12 @@
     <p *ngIf="error">{{ error }}</p>
 
     <div class="authors-grid" *ngIf="!loading && !error">
-        <div class="author-card" *ngFor="let author of authors">
+        <div class="author-card" *ngFor="let author of authors"
+             [routerLink]="['/authors', author.id]" style="cursor:pointer">
+            <div class="author-avatar">{{ author.full_name[0] }}</div>
             <h2>{{ author.full_name }}</h2>
-            <p><strong>First name:</strong> {{ author.first_name }}</p>
-            <p><strong>Last name:</strong> {{ author.last_name }}</p>
-            <p><strong>Birth date:</strong> {{ author.birth_date }}</p>
-            <p><strong>Books:</strong> {{ author.book_count }}</p>
-            <p class="bio">{{ author.bio }}</p>
+            <p class="author-meta">📚 {{ author.book_count }} книг</p>
+            <p class="bio">{{ author.bio | slice:0:120 }}...</p>
         </div>
     </div>
 </div>

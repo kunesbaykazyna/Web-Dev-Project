@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthorsComponent } from './pages/authors/authors';
 import { AuthGuard } from './guards/auth.guard';
+import { AuthorDetailComponent } from './pages/author-detail/author-detail';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,8 +15,9 @@ export const routes: Routes = [
     { path: 'books', component: BooksListComponent },
     { path: 'books/:id', component: BookDetailComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },//
+    { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-    { path: '', redirectTo: '/login', pathMatch: 'full' }
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: 'authors/:id', component: AuthorDetailComponent }
 ];

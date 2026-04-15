@@ -23,4 +23,8 @@ export class AuthorService {
   getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>(this.apiUrl);
   }
+
+  getAuthorById(id: number): Observable<Author> {
+    return this.http.get<Author>(`http://127.0.0.1:8000/api/authors/${id}/`);
+  }
 }
