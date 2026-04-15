@@ -4,13 +4,24 @@
     <p *ngIf="loading">Loading authors...</p>
     <p *ngIf="error">{{ error }}</p>
 
+    <div class="sort-box">
+        <label class="sortby">Sort by:</label>
+
+        <select [(ngModel)]="selectedOrdering" (change)="sortAuthors()">
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
+    </div>
+
     <div class="authors-grid" *ngIf="!loading && !error">
         <div class="author-card" *ngFor="let author of authors"
              [routerLink]="['/authors', author.id]" style="cursor:pointer">
+
             <div class="author-avatar">{{ author.full_name[0] }}</div>
             <h2>{{ author.full_name }}</h2>
             <p class="author-meta">📚 {{ author.book_count }} книг</p>
             <p class="bio">{{ author.bio | slice:0:120 }}...</p>
+
         </div>
     </div>
 </div>
