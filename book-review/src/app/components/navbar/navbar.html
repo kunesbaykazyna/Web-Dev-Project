@@ -34,7 +34,9 @@
             </ng-container>
 
             <div class="user-chip" *ngIf="username">
-                <img src="https://i.pravatar.cc/32" alt="avatar" class="avatar" />
+                <div class="avatar initials-avatar">
+                    {{ username[0] | uppercase }}
+                </div>
                 <span>{{ username }}</span>
                 <span class="chevron" (click)="logout()" style="cursor:pointer" title="Выйти">⏻</span>
             </div>
