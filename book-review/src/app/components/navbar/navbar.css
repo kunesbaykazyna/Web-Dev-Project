@@ -108,8 +108,8 @@
     max-width: 360px;
     border-block-color: #1a1a2e;
     transform: translateX(200px);
-    border-color: #1a1a2e; !important;
-    hight: 50px;
+    border-color: #1a1a2e !important;
+    height: 50px;
 }
 
 .search-ico1 {

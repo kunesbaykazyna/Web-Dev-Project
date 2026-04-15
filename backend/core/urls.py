@@ -18,6 +18,7 @@ urlpatterns = [
     path('api/profile/', ProfileView.as_view(), name='profile'),
     path('api/', include('books.urls')),
     path('api/reviews/', include('reviews.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:

@@ -43,7 +43,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   loadReviews(bookId: number): void {
-    this.reviewService.getReviews().subscribe({
+    this.reviewService.getReviews(this.book.id).subscribe({
       next: (data: any[]) => {
       
         this.reviews = data.filter((review) => review.book === bookId);
@@ -61,7 +61,7 @@ export class BookDetailsComponent implements OnInit {
       rating: this.newRating
     };
 
-    this.reviewService.addReview(reviewData).subscribe({
+    this.reviewService.addReview(this.book.id, reviewData).subscribe({
       next: () => {
         this.newComment = ''; 
         this.newRating = 5;   
