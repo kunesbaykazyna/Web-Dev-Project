@@ -49,12 +49,11 @@ class Book(models.Model):
         total = sum(r.rating for r in reviews)
         return round(total / reviews.count(), 2)
 
-
 class Review(models.Model):
     book = models.ForeignKey(
-        Book,
-        on_delete=models.CASCADE,
-        related_name='reviews'
+        'books.Book', 
+        on_delete=models.CASCADE, 
+        related_name='book_reviews' ,
     )
     rating = models.PositiveSmallIntegerField()
     comment = models.TextField(blank=True)
