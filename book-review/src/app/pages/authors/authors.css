@@ -8,7 +8,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .search-icon {
@@ -22,19 +24,18 @@
 
 .search-box {
     position: relative;
-    transform: translate(-10px, 13px);
+    transform: translate(0px, 85px);
 }
 
 .search-box input {
     width: 260px;
-    height: 30px;
+    height: 38px;
     border: 1px solid rgba(47, 163, 159, 0.89);
     border-radius: 10px;
     background: #fff;
     padding: 0 14px 0 38px;
     font-size: 14px;
     outline: none;
-    margin-right: -120px;
 }
 
 .search-box input:focus {
@@ -50,7 +51,7 @@
 
     background: #ffffff;
     padding: 2px 15px;
-    border-radius: 14px;
+    border-radius: 10px;
     transform: translate(-510px, 0px);
 
     width: fit-content;
@@ -63,7 +64,7 @@
 .sortby {
     font-size: 15px;
     font-weight: 600;
-    color: #444;
+    color: rgb(15, 76, 72);
 }
 
 .sort-box select {
