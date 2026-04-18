@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ProfileService, Profile } from '../../services/profile.service';
+import { ProfileService } from '../../services/profile.service';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 
@@ -119,41 +119,35 @@ export class ProfileComponent implements OnInit {
   private profileService = inject(ProfileService);
   private authService = inject(AuthService);
 
-  profile = signal<any | null>(null); 
+  profile = signal<any>(null); 
   loading = signal(true);
   isEditing = signal(false); 
 
   ngOnInit() {
-  this.loadProfile();
-  const storedName = localStorage.getItem('username');
-  if (storedName && !this.profile()?.username) {
-    this.profile.update(p => ({
-      ...p,
-      username: storedName
-    }));
+    this.loadProfile();
   }
-}
 
   loadProfile() {
-  this.profileService.getProfile().subscribe({
-    next: (res) => {
-      this.profile.set({ 
-        ...res, 
-        username: res.username || localStorage.getItem('username') || 'User',
-        email: res.email || localStorage.getItem('userEmail') || 'Not provided'
-      });
-      this.loading.set(false);
-    },
-    error: () => {
-      this.profile.set({ 
-        username: localStorage.getItem('username') || 'User',
-        email: localStorage.getItem('userEmail') || 'Not provided'
-      });
-      this.loading.set(false);
-    }
-  });
-}
-
+    this.profileService.getProfile().subscribe({
+      next: (res: any) => {
+        this.profile.set({ 
+          ...res, 
+          username: res.username || localStorage.getItem('username') || 'User',
+          email: res.email || 'Not provided'
+        });
+        this.loading.set(false);
+      },
+      error: (err) => {
+        console.error('Load error:', err);
+        this.profile.set({ 
+          username: localStorage.getItem('username') || 'User',
+          email: 'Not provided',
+          bio: ''
+        });
+        this.loading.set(false);
+      }
+    });
+  }
 
   toggleEdit() {
     this.isEditing.set(!this.isEditing());
@@ -161,14 +155,17 @@ export class ProfileComponent implements OnInit {
 
   saveProfile(newBio: string) {
     this.profileService.updateProfile({ bio: newBio }).subscribe({
-      next: (updated) => {
-        this.profile.set(updated);
+      next: (updated: any) => {
+        this.profile.set({
+          ...this.profile(),
+          bio: updated.bio || newBio
+        });
         this.isEditing.set(false);
         alert('Profile updated successfully!');
       },
       error: (err) => {
-        console.error('Update error:', err);
-        alert('Failed to update profile.');
+        console.error('Update error details:', err);
+        alert('Failed to update profile. Check console for details.');
       }
     });
   }
