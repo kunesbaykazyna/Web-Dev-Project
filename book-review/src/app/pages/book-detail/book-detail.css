@@ -84,6 +84,11 @@
     font-size: 13px;
     font-weight: 500;
     width: fit-content;
+    text-decoration: none;
+}
+
+.genre-badge:hover {
+    text-decoration: underline;
 }
 
 .detail-title {

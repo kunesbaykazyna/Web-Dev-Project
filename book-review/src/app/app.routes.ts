@@ -15,6 +15,7 @@ export const routes: Routes = [
     { path: 'authors', component: AuthorsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'genre/:genre', loadComponent: () => import('./pages/genre-books/genre-books').then(m => m.GenreBooksComponent) },
 
     { path: 'books/:id', component: BookDetailComponent },
     { path: 'authors/:id', component: AuthorDetailComponent },

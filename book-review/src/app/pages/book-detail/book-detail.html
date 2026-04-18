@@ -18,7 +18,12 @@
         </div>
 
         <div class="detail-info">
-            <span class="genre-badge" *ngIf="book.genre">{{ book.genre }}</span>
+            <a
+                    class="genre-badge"
+                    [routerLink]="['/genre', book.genre]"
+            >
+                {{ book.genre }}
+            </a>
             <h1 class="detail-title">{{ book.title }}</h1>
             <p class="detail-author">✍️ {{ book.author.full_name }}</p>
 

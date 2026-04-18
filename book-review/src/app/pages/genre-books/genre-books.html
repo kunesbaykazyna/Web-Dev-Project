@@ -1,0 +1,22 @@
+<div class="genre-page">
+    <a routerLink="/books" class="back-link">← Back to books</a>
+
+    <h1>{{ genre }}</h1>
+
+    <p *ngIf="loading">Loading books...</p>
+    <p *ngIf="error">{{ error }}</p>
+
+    <div class="books-grid" *ngIf="!loading && books.length > 0">
+        <a
+                class="book-card"
+                *ngFor="let book of books"
+                [routerLink]="['/books', book.id]"
+        >
+            <img [src]="book.cover_image" [alt]="book.title">
+        </a>
+    </div>
+
+    <p *ngIf="!loading && !error && books.length === 0">
+        No books found in this genre.
+    </p>
+</div>
