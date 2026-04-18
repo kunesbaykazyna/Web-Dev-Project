@@ -7,7 +7,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenBlacklistView
 )
-from users.views import RegisterView, ProfileView 
+from users.views import RegisterView, ProfileView,chat_with_gemini
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +16,10 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/logout/', TokenBlacklistView.as_view(), name='token_blacklist'),
     path('api/profile/', ProfileView.as_view(), name='profile'),
+    path('api/', include('books.urls')),
+    path('api/reviews/', include('reviews.urls')),
+    path('admin/', admin.site.urls),
+    path('api/chat/', chat_with_gemini, name='chat_gemini'),
     path('api/', include('books.urls')),
     path('api/reviews/', include('reviews.urls')),
     path('admin/', admin.site.urls),

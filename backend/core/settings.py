@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'reviews'
 ]
 
+GEMINI_API_KEY = 'AIzaSyAKfix_TN9cStoRwXvu9SmqNBP7iz3-0bk'
+
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -86,7 +89,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        # Было JSONWebTokenAuthentication (ошибка здесь)
+        'rest_framework_simplejwt.authentication.JWTAuthentication', 
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
     ),
 }
 
@@ -104,7 +112,7 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = 'none' 
 ACCOUNT_LOGIN_METHODS = {'username'}
 
-CORS_ALLOW_ALL_ORIGINS = True 
+# CORS_ALLOW_ALL_ORIGINS = True 
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -152,7 +160,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
+    "http://127.0.0.1:4200",
+
 ]
