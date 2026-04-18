@@ -9,15 +9,17 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthorDetailComponent } from './pages/author-detail/author-detail';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'authors', component: AuthorsComponent },
     { path: '', redirectTo: 'books', pathMatch: 'full' },
+
     { path: 'books', component: BooksListComponent },
-    { path: 'books/:id', component: BookDetailComponent },
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'authors', component: AuthorsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+
+    { path: 'books/:id', component: BookDetailComponent },
+    { path: 'authors/:id', component: AuthorDetailComponent },
+
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'authors/:id', component: AuthorDetailComponent }
+
+    { path: '**', redirectTo: 'books' } 
 ];

@@ -1,5 +1,17 @@
 <div class="authors-page">
-    <h1>Authors</h1>
+    <div class="authors-header">
+        <h1>Authors</h1>
+
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input
+                    type="text"
+                    placeholder="Search authors..."
+                    [(ngModel)]="searchText"
+                    (input)="filterAuthors()"
+            />
+        </div>
+    </div>
 
     <p *ngIf="loading">Loading authors...</p>
     <p *ngIf="error">{{ error }}</p>
@@ -14,7 +26,7 @@
     </div>
 
     <div class="authors-grid" *ngIf="!loading && !error">
-        <div class="author-card" *ngFor="let author of authors"
+        <div class="author-card" *ngFor="let author of filteredAuthors"
              [routerLink]="['/authors', author.id]" style="cursor:pointer">
 
             <div class="author-avatar">{{ author.full_name[0] }}</div>

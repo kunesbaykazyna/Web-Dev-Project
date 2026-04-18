@@ -14,10 +14,13 @@ import { FormsModule } from '@angular/forms';
 export class AuthorsComponent implements OnInit {
 
   authors: Author[] = [];
+  filteredAuthors: Author[] = [];
+
   loading = true;
   error = '';
 
   selectedOrdering = 'asc';
+  searchText = '';
 
   constructor(
       private authorService: AuthorService,
@@ -28,6 +31,7 @@ export class AuthorsComponent implements OnInit {
     this.authorService.getAuthors().subscribe({
       next: (data) => {
         this.authors = data;
+        this.filteredAuthors = [...data];
         this.sortAuthors();
         this.loading = false;
         this.cdr.detectChanges();
@@ -41,15 +45,29 @@ export class AuthorsComponent implements OnInit {
     });
   }
 
+  filterAuthors() {
+    const query = this.searchText.toLowerCase().trim();
+
+    this.filteredAuthors = this.authors.filter(author =>
+        author.full_name.toLowerCase().includes(query)
+    );
+
+    this.sortFilteredAuthors();
+  }
+
   sortAuthors() {
-    this.authors.sort((a, b) => {
-      const firstA = a.full_name[0].toLowerCase();
-      const firstB = b.full_name[0].toLowerCase();
+    this.filterAuthors();
+  }
+
+  sortFilteredAuthors() {
+    this.filteredAuthors.sort((a, b) => {
+      const nameA = a.full_name.toLowerCase();
+      const nameB = b.full_name.toLowerCase();
 
       if (this.selectedOrdering === 'asc') {
-        return firstA.localeCompare(firstB);
+        return nameA.localeCompare(nameB);
       } else {
-        return firstB.localeCompare(firstA);
+        return nameB.localeCompare(nameA);
       }
     });
   }
