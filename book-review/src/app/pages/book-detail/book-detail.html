@@ -1,9 +1,9 @@
 <div class="page">
-    <a routerLink="/books" class="back-btn">← Назад к списку</a>
+    <a routerLink="/books" class="back-btn">← Back to list</a>
 
     <div class="loading" *ngIf="loading">
         <div class="spinner"></div>
-        <p>Загружаем книгу...</p>
+        <p>Loading book...</p>
     </div>
 
     <div class="error" *ngIf="error">{{ error }}</div>
@@ -33,12 +33,12 @@
             <div class="detail-rating">
                 <span class="stars">{{ getStars(book.average_rating) }}</span>
                 <span *ngIf="book.average_rating" class="rating-num">{{ book.average_rating }}/5</span>
-                <span *ngIf="!book.average_rating" class="no-rating">Нет отзывов</span>
+                <span *ngIf="!book.average_rating" class="no-rating">No reviews yet</span>
             </div>
 
             <div class="meta">
                 <div class="meta-item" *ngIf="book.published_date">
-                    <span class="meta-label">Дата выхода</span>
+                    <span class="meta-label">Published</span>
                     <span>{{ book.published_date | date:'dd.MM.yyyy' }}</span>
                 </div>
                 <div class="meta-item" *ngIf="book.isbn">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="description" *ngIf="book.description">
-                <h3>О книге</h3>
+                <h3>About the book</h3>
                 <p>{{ book.description }}</p>
             </div>
         </div>

@@ -1,9 +1,9 @@
 <div class="page">
-    <a routerLink="/authors" class="back-btn">← Назад к авторам</a>
+    <a routerLink="/authors" class="back-btn">← Back to authors</a>
 
     <div class="loading" *ngIf="loading">
         <div class="spinner"></div>
-        <p>Загружаем автора...</p>
+        <p>Loading author...</p>
     </div>
 
     <div class="error" *ngIf="error">{{ error }}</div>
@@ -11,30 +11,38 @@
     <div *ngIf="author && !loading">
         <div class="author-card">
             <div class="avatar">{{ getInitials(author.full_name) }}</div>
+
             <div class="author-info">
                 <h1 class="author-name">{{ author.full_name }}</h1>
+
                 <div class="meta">
-          <span class="meta-item" *ngIf="author.birth_date">
-              <img src="/icons/b.png" class="meta-icon1" alt="birth">
-              {{ author.birth_date | date:'dd.MM.yyyy' }}
-          </span>
+                    <span class="meta-item" *ngIf="author.birth_date">
+                        <img src="/icons/b.png" class="meta-icon1" alt="birth">
+                        {{ author.birth_date | date:'dd.MM.yyyy' }}
+                    </span>
 
                     <span class="meta-item">
                         <img src="/icons/books.png" class="meta-icon2" alt="books">
                         {{ author.book_count }} {{ author.book_count === 1 ? 'book' : 'books' }}
                     </span>
                 </div>
+
                 <p class="bio" *ngIf="author.bio">{{ author.bio }}</p>
             </div>
         </div>
 
         <div class="books-section">
-            <h2 class="section-title">Книги автора</h2>
+            <h2 class="section-title">Author's books</h2>
+
             <div class="books-grid" *ngIf="books.length > 0">
-                <app-book-card *ngFor="let book of books" [book]="book"></app-book-card>
+                <app-book-card
+                        *ngFor="let book of books"
+                        [book]="book">
+                </app-book-card>
             </div>
+
             <div class="empty" *ngIf="books.length === 0">
-                <p>📭 Книги не найдены</p>
+                <p>📭 No books found</p>
             </div>
         </div>
     </div>
