@@ -7,7 +7,8 @@
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 220px;
+    margin: 0 auto;
 }
 
 .card:hover {
@@ -16,10 +17,14 @@
 }
 
 .card-cover {
-    height: 200px;
-    overflow: hidden;
+    height: 320px;
     background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
+
 
 .card-cover img {
     width: 100%;
