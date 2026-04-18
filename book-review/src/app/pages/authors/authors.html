@@ -31,7 +31,10 @@
 
             <div class="author-avatar">{{ author.full_name[0] }}</div>
             <h2>{{ author.full_name }}</h2>
-            <p class="author-meta">📚 {{ author.book_count }} книг</p>
+            <p class="author-meta">
+                <img src="/icons/open-book.png" class="meta-icon" alt="book">
+                {{ author.book_count }} books
+            </p>
             <p class="bio">{{ author.bio | slice:0:120 }}...</p>
 
         </div>

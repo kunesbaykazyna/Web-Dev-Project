@@ -25,7 +25,10 @@
                 {{ book.genre }}
             </a>
             <h1 class="detail-title">{{ book.title }}</h1>
-            <p class="detail-author">✍️ {{ book.author.full_name }}</p>
+            <p class="detail-author">
+                <img src="/icons/writer.png" class="detail-icon" alt="writer">
+                {{ book.author.full_name }}
+            </p>
 
             <div class="detail-rating">
                 <span class="stars">{{ getStars(book.average_rating) }}</span>

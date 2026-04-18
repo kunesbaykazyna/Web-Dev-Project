@@ -15,11 +15,14 @@
                 <h1 class="author-name">{{ author.full_name }}</h1>
                 <div class="meta">
           <span class="meta-item" *ngIf="author.birth_date">
-            🎂 {{ author.birth_date | date:'dd.MM.yyyy' }}
+              <img src="/icons/b.png" class="meta-icon1" alt="birth">
+              {{ author.birth_date | date:'dd.MM.yyyy' }}
           </span>
+
                     <span class="meta-item">
-            📚 {{ author.book_count }} {{ author.book_count === 1 ? 'книга' : 'книг' }}
-          </span>
+                        <img src="/icons/books.png" class="meta-icon2" alt="books">
+                        {{ author.book_count }} {{ author.book_count === 1 ? 'book' : 'books' }}
+                    </span>
                 </div>
                 <p class="bio" *ngIf="author.bio">{{ author.bio }}</p>
             </div>

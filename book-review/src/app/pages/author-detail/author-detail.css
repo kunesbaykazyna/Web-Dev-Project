@@ -17,6 +17,22 @@
     transform: translate(0px, 20px);
 
 }
+
+
+.meta-icon1 {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.meta-icon2 {
+    width: 19px;
+    height: 19px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
 .back-btn:hover { opacity: 0.7; }
 
 .loading {
