@@ -33,11 +33,11 @@ export class BooksListComponent implements OnInit, OnDestroy {
   genres = ['Fantasy', 'Science Fiction', 'Romance', 'Thriller', 'Horror', 'Classic', 'History'];
 
   orderingOptions = [
-    { value: '-created_at', label: 'Новые сначала' },
-    { value: 'created_at', label: 'Старые сначала' },
-    { value: 'title', label: 'По названию А-Я' },
-    { value: '-title', label: 'По названию Я-А' },
-    { value: '-avg_rating', label: 'По рейтингу' },
+    { value: '-created_at', label: 'Newest first' },
+    { value: 'created_at', label: 'Oldest first' },
+    { value: 'title', label: 'Title A-Z' },
+    { value: '-title', label: 'Title Z-A' },
+    { value: '-avg_rating', label: 'Top rated' },
   ];
 
   constructor(

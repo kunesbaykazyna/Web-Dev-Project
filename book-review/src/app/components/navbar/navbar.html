@@ -14,19 +14,6 @@
 
 
 
-        <div class="searchborder1">
-            <div class="nav-center1">
-                <div class="search-wrap1">
-                    <input
-                            type="text"
-                            placeholder="Search books, authors..."
-                            [(ngModel)]="search"
-                            (ngModelChange)="onSearchChange($event)"
-                    />
-                </div>
-            </div>
-        </div>
-
         <div class="nav-right">
             <ng-container *ngIf="!username">
                 <a routerLink="/login" class="auth-btn">Login</a>
