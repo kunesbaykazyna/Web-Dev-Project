@@ -2,3 +2,22 @@
     <app-navbar *ngIf="!isAuthPage"></app-navbar>
     <router-outlet></router-outlet>
 </div>
+
+<div class="ai-chat-container">
+    <button class="chat-toggle" (click)="toggleChat()">
+    <img src="assets/my-ai-logo.pnga" alt="AI" class="toggle-icon">
+</button>
+    <div class="chat-window" *ngIf="isChatOpen">
+        <div class="chat-header">AI Assistant</div>
+        <div class="chat-body">
+            <div *ngFor="let msg of messages" [ngClass]="msg.isUser ? 'user-msg' : 'ai-msg'">
+                {{ msg.text }}
+            </div>
+            <div *ngIf="isLoading" class="ai-msg">Typing...</div>
+        </div>
+        <div class="chat-footer">
+            <input [(ngModel)]="userInput" (keydown.enter)="sendToAI()" placeholder="Ask about books...">
+            <button (click)="sendToAI()">></button>
+        </div>
+    </div>
+</div>

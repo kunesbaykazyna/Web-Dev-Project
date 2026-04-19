@@ -158,3 +158,79 @@
     color: #aaa;
     font-size: 12px;
 }
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-info:hover .username-text {
+    color: var(--primary); 
+}
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    background: #ffffff; 
+    padding: 2px 8px; 
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    gap: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.profile-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+
+.profile-link-btn:hover {
+    background: #f0f2f5; 
+}
+
+.username-text {
+    font-weight: 600;
+    font-size: 14px;
+    max-width: 120px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    border-left: 1px solid #eee;
+    padding: 0;
+    padding-left: 10px; 
+    margin-left: -3px;  
+    display: flex;
+    align-items: center;
+    color: #ff4d4f;   
+    cursor: pointer;
+    margin-top: -1px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+
+.logout-btn:hover {
+    color: #cf1322;    
+    transform: scale(1.15);
+}
+
+.initials-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    background: #137874 !important; 
+    font-size: 12px !important;
+    flex-shrink: 0;
+}
+

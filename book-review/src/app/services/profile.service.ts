@@ -12,22 +12,24 @@ export interface Profile {
 @Injectable({ providedIn: 'root' })
 export class ProfileService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://127.0.0.1:8000/api/profile/'; 
+  private apiUrl = 'http://127.0.0.1:8000/api'; 
 
   getProfile() {
-    return this.http.get<Profile>(this.apiUrl);
-  }
+  const token = localStorage.getItem('token');
+  const headers = { 'Authorization': `Bearer ${token}` };
+  return this.http.get(`${this.apiUrl}/profile/`, { headers });
+}
 
-  updateProfile(data: { bio?: string, avatar?: File }) {
-    const formData = new FormData();
-    
-    if (data.bio !== undefined) {
-      formData.append('bio', data.bio);
-    }
-    
-    if (data.avatar) {
-      formData.append('avatar', data.avatar, data.avatar.name);
-    }
-    return this.http.patch<Profile>(this.apiUrl, formData);
-  }
+
+  updateProfile(data: any) {
+  const token = localStorage.getItem('token');
+
+  const headers = { 
+    'Authorization': `Bearer ${token}` 
+  };
+
+  return this.http.patch(`${this.apiUrl}/profile/`, data, { headers });
+}
+
+
 }
