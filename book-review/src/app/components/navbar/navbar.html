@@ -13,9 +13,6 @@
                 <a href="#">Reviews</a>
             </div>
         </div>
-
-
-
         <div class="nav-right">
             <ng-container *ngIf="!username">
                 <a routerLink="/login" class="auth-btn">Login</a>
@@ -23,12 +20,23 @@
             </ng-container>
 
             <div class="user-chip" *ngIf="username">
-                <div class="avatar initials-avatar">
-                    {{ username[0] | uppercase }}
-                </div>
-                <span>{{ username }}</span>
-                <span class="chevron" (click)="logout()" style="cursor:pointer" title="Выйти">⏻</span>
+                <a routerLink="/profile" class="profile-link-btn" title="Перейти в профиль">
+            <div class="avatar initials-avatar">
+                {{ username[0] | uppercase }}
             </div>
+            <span class="username-text">{{ username }}</span>
+            </a>
+    
+    <button class="logout-btn" (click)="logout()" title="Выйти">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+    </button>
+</div>
+
+
         </div>
     </div>
 </nav>
