@@ -13,7 +13,7 @@
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .card-cover {
@@ -83,4 +83,34 @@
     background: #e8f4fd;
     color: #2980b9;
     border-radius: 10px;
+}
+
+.card-cover {
+    position: relative !important;
+}
+
+.favorite-btn {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+
+    /* БҰЛ ЕҢ МАҢЫЗДЫ ЖОЛДАР: */
+    z-index: 999 !important;
+    pointer-events: auto !important;
+
+    width: 35px !important;
+    height: 35px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    border: 1px solid #ddd !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer !important;
+}
+
+/* Басылғанда қызыл болуы үшін */
+.favorite-btn.active {
+    background-color: #fbfafa !important;
+    border-color: #eeebeb !important;
 }

@@ -7,8 +7,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthorsComponent } from './pages/authors/authors';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthorDetailComponent } from './pages/author-detail/author-detail';
-
-export const routes: Routes = [
+import { FavoritesComponent } from './pages/favorites/favorites';
+export const routes: Routes = [ 
     { path: '', redirectTo: 'books', pathMatch: 'full' },
 
     { path: 'books', component: BooksListComponent },
@@ -21,6 +21,7 @@ export const routes: Routes = [
     { path: 'authors/:id', component: AuthorDetailComponent },
 
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard] }, 
 
     { path: '**', redirectTo: 'books' } 
 ];
