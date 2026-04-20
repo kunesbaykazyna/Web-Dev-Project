@@ -11,19 +11,14 @@
     <div class="detail-card" *ngIf="book && !loading">
         <div class="detail-cover">
             <img
-                    [src]="book.cover_image || ''"
-                    [alt]="book.title"
-                    onerror="this.src='https://placehold.co/300x420?text=No+Cover'"
+                [src]="book.cover_image || ''"
+                [alt]="book.title"
+                onerror="this.src='https://placehold.co/300x420?text=No+Cover'"
             />
         </div>
 
         <div class="detail-info">
-            <a
-                    class="genre-badge"
-                    [routerLink]="['/genre', book.genre]"
-            >
-                {{ book.genre }}
-            </a>
+            <a class="genre-badge" [routerLink]="['/genre', book.genre]">{{ book.genre }}</a>
             <h1 class="detail-title">{{ book.title }}</h1>
             <p class="detail-author">
                 <img src="/icons/writer.png" class="detail-icon" alt="writer">
@@ -50,6 +45,163 @@
             <div class="description" *ngIf="book.description">
                 <h3>About the book</h3>
                 <p>{{ book.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews-section" *ngIf="book && !loading">
+        <h2 class="reviews-title">Reviews <span class="reviews-count">{{ reviews.length }}</span></h2>
+
+        <!-- Add Review Form -->
+        <div class="add-review-card" *ngIf="isLoggedIn">
+            <h3>Leave a Review</h3>
+            <div class="rating-select">
+                <label>Rating:</label>
+                <div class="star-picker">
+                    <span
+                        *ngFor="let s of [1,2,3,4,5]"
+                        class="star-pick"
+                        [class.active]="s <= newReviewRating"
+                        (click)="newReviewRating = s"
+                    >★</span>
+                </div>
+            </div>
+            <textarea
+                class="review-textarea"
+                [(ngModel)]="newReviewText"
+                placeholder="Share your thoughts about this book..."
+                rows="3"
+            ></textarea>
+            <button
+                class="submit-review-btn"
+                (click)="submitReview()"
+                [disabled]="!newReviewText.trim() || submittingReview"
+            >
+                {{ submittingReview ? 'Submitting...' : 'Submit Review' }}
+            </button>
+        </div>
+        <div class="login-prompt" *ngIf="!isLoggedIn">
+            <a routerLink="/login">Log in</a> to leave a review.
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-loading" *ngIf="reviewsLoading">
+            <div class="spinner"></div>
+        </div>
+
+        <div class="no-reviews" *ngIf="!reviewsLoading && reviews.length === 0">
+            No reviews yet. Be the first!
+        </div>
+
+        <div class="review-card" *ngFor="let review of reviews">
+            <!-- Edit mode -->
+            <div *ngIf="editingReview?.id === review.id; else viewReview">
+                <div class="rating-select">
+                    <label>Rating:</label>
+                    <div class="star-picker">
+                        <span
+                            *ngFor="let s of [1,2,3,4,5]"
+                            class="star-pick"
+                            [class.active]="s <= editingReview!.rating"
+                            (click)="editingReview!.rating = s"
+                        >★</span>
+                    </div>
+                </div>
+                <textarea
+                    class="review-textarea"
+                    [(ngModel)]="editingReview!.text"
+                    rows="3"
+                ></textarea>
+                <div class="review-edit-actions">
+                    <button class="submit-review-btn" (click)="saveEditReview(review)">Save</button>
+                    <button class="cancel-review-btn" (click)="cancelEditReview()">Cancel</button>
+                </div>
+            </div>
+
+            <ng-template #viewReview>
+                <div class="review-header">
+                    <a [routerLink]="['/users', review.user_username]" class="review-username">
+                        <span class="avatar-letter">{{ (review.user_username || 'U').charAt(0).toUpperCase() }}</span>
+                        {{ review.user_username }}
+                    </a>
+                    <div class="review-meta-right">
+                        <span class="review-stars">{{ getStars(review.rating) }}</span>
+                        <span class="review-date">{{ review.created_at | date:'dd MMM yyyy' }}</span>
+                    </div>
+                </div>
+
+                <p class="review-text">{{ review.text }}</p>
+
+                <div class="review-actions">
+                    <button
+                        class="like-btn"
+                        [class.liked]="review.is_liked"
+                        (click)="toggleLike(review)"
+                        [disabled]="!isLoggedIn"
+                        [title]="isLoggedIn ? '' : 'Log in to like'"
+                    >
+                        {{ review.is_liked ? '❤️' : '🤍' }} {{ review.like_count }}
+                    </button>
+
+                    <button
+                        class="comments-toggle-btn"
+                        (click)="toggleComments(review.id)"
+                    >
+                        💬 {{ (review.comments || []).length }}
+                        {{ isCommentsExpanded(review.id) ? '▲' : '▼' }}
+                    </button>
+
+                    <div class="review-owner-actions" *ngIf="review.is_owner">
+                        <button class="edit-review-btn" (click)="startEditReview(review)">Edit</button>
+                        <button class="delete-review-btn" (click)="deleteReview(review.id)">Delete</button>
+                    </div>
+                </div>
+            </ng-template>
+
+            <!-- Comments Section -->
+            <div class="comments-section" *ngIf="isCommentsExpanded(review.id)">
+                <div class="comment" *ngFor="let comment of review.comments">
+                    <div class="comment-header">
+                        <a [routerLink]="['/users', comment.username]" class="comment-username">
+                            <span class="avatar-letter sm">{{ (comment.username || 'U').charAt(0).toUpperCase() }}</span>
+                            {{ comment.username }}
+                        </a>
+                        <span class="comment-date">{{ comment.created_at | date:'dd MMM yyyy' }}</span>
+                    </div>
+
+                    <div *ngIf="editingComment?.id === comment.id; else viewComment">
+                        <textarea
+                            class="comment-edit-textarea"
+                            [(ngModel)]="editingComment!.text"
+                            rows="2"
+                        ></textarea>
+                        <div class="comment-edit-actions">
+                            <button class="save-comment-btn" (click)="saveEditComment(review)">Save</button>
+                            <button class="cancel-comment-btn" (click)="cancelEditComment()">Cancel</button>
+                        </div>
+                    </div>
+                    <ng-template #viewComment>
+                        <p class="comment-text">{{ comment.text }}</p>
+                        <div class="comment-own-actions" *ngIf="comment.is_owner">
+                            <button class="edit-comment-btn" (click)="startEditComment(comment)">Edit</button>
+                            <button class="delete-comment-btn" (click)="deleteComment(review, comment.id)">Delete</button>
+                        </div>
+                    </ng-template>
+                </div>
+
+                <div class="add-comment" *ngIf="isLoggedIn">
+                    <input
+                        class="comment-input"
+                        [(ngModel)]="newCommentText[review.id]"
+                        placeholder="Write a comment..."
+                        (keyup.enter)="submitComment(review)"
+                    />
+                    <button class="add-comment-btn" (click)="submitComment(review)">Post</button>
+                </div>
+                <div class="login-prompt-sm" *ngIf="!isLoggedIn">
+                    <a routerLink="/login">Log in</a> to comment.
+                </div>
             </div>
         </div>
     </div>

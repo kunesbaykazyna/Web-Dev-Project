@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/genre-books/genre-books.css"],
+  "sourcesContent": [".genre-page {\n    max-width: 1200px;\n    margin: 40px auto;\n    padding: 0 20px;\n}\n\nh1{\n    font-size: 36px;\n    font-weight: 950;\n    color: #134247;\n}\n.back-link {\n    display: inline-block;\n    margin-bottom: 20px;\n    text-decoration: none;\n    color: #1d5c63;\n    font-weight: 600;\n    transform: translate(0px, 20px);\n}\n\n.back-link:hover { opacity: 0.7; }\n\n.books-grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));\n    gap: 24px;\n    margin-top: 30px;\n}\n\n.book-card {\n    display: block;\n    text-decoration: none;\n}\n\n.book-card img {\n    width: 100%;\n    height: 240px;\n    object-fit: cover;\n    border-radius: 12px;\n    transition: transform 0.2s ease;\n}\n\n.book-card img:hover {\n    transform: scale(1.03);\n}"],
+  "mappings": ";AAAA,CAAC;AACG,aAAW;AACX,UAAQ,KAAK;AACb,WAAS,EAAE;AACf;AAEA;AACI,aAAW;AACX,eAAa;AACb,SAAO;AACX;AACA,CAAC;AACG,WAAS;AACT,iBAAe;AACf,mBAAiB;AACjB,SAAO;AACP,eAAa;AACb,aAAW,UAAU,GAAG,EAAE;AAC9B;AAEA,CATC,SASS;AAAS,WAAS;AAAK;AAEjC,CAAC;AACG,WAAS;AACT,yBAAuB,OAAO,SAAS,EAAE,OAAO,KAAK,EAAE;AACvD,OAAK;AACL,cAAY;AAChB;AAEA,CAAC;AACG,WAAS;AACT,mBAAiB;AACrB;AAEA,CALC,UAKU;AACP,SAAO;AACP,UAAQ;AACR,cAAY;AACZ,iBAAe;AACf,cAAY,UAAU,KAAK;AAC/B;AAEA,CAbC,UAaU,GAAG;AACV,aAAW,MAAM;AACrB;",
+  "names": []
+}
