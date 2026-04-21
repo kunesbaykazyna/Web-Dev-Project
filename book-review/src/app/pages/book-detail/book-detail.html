@@ -137,13 +137,18 @@
 
                 <div class="review-actions">
                     <button
-                        class="like-btn"
-                        [class.liked]="review.is_liked"
-                        (click)="toggleLike(review)"
-                        [disabled]="!isLoggedIn"
-                        [title]="isLoggedIn ? '' : 'Log in to like'"
+                            class="like-btn"
+                            [class.liked]="review.is_liked"
+                            (click)="toggleLike(review)"
+                            [disabled]="!isLoggedIn"
+                            [title]="isLoggedIn ? '' : 'Log in to like'"
                     >
-                        {{ review.is_liked ? '❤️' : '🤍' }} {{ review.like_count }}
+                        <img
+                                class="review-like-icon"
+                                [src]="review.is_liked ? 'icons/heart.png' : 'icons/like.png'"
+                                alt="like"
+                        />
+                        <span>{{ review.like_count }}</span>
                     </button>
 
                     <button
