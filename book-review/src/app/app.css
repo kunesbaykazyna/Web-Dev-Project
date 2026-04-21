@@ -125,3 +125,19 @@ body {
     border-radius: 50%;
     cursor: pointer;
 }
+.chat-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Твои старые стили (background, border-radius и т.д.) оставляем */
+}
+
+.toggle-icon {
+    width: 35px; /* Размер иконки внутри кнопки */
+    height: 35px;
+    transition: transform 0.2s;
+}
+
+.chat-toggle:hover .toggle-icon {
+    transform: scale(1.1); /* Иконка будет чуть увеличиваться при наведении */
+}
