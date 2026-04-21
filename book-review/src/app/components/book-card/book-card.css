@@ -29,7 +29,7 @@
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(120, 120, 120, 0.35);
 }
 
 .card-body {
@@ -82,7 +82,7 @@
 }
 
 .card-author {
-    font-size: 12px;
+    font-size: 13px;
     color: #888;
 }
 
@@ -114,4 +114,12 @@
     background: #e8f4fd;
     color: #2980b9;
     border-radius: 10px;
+    transform: translateY(4px);
 }
+
+.card-author,
+.card-rating,
+.card-tags {
+    transform: translateY(-4px);
+}
+
