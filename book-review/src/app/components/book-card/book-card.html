@@ -1,18 +1,32 @@
 <div class="card" [routerLink]="['/books', book.id]">
-    <div class="card-cover">
-        <img [src]="book.cover_image || ''" [alt]="book.title"
-            onerror="this.src='https://placehold.co/180x260?text=No+Cover'" />
 
-        <button class="favorite-btn" [class.active]="isFavorite" [disabled]="isProcessing" (click)="toggleLike($event)"
-            style="cursor: pointer; pointer-events: auto;">
-            <span class="heart" [style.opacity]="isProcessing ? '0.5' : '1'">
-                {{ isFavorite ? '❤️' : '🤍' }}
-            </span>
-        </button>
+    <div class="card-cover">
+        <img
+                [src]="book.cover_image || ''"
+                [alt]="book.title"
+                onerror="this.src='https://placehold.co/180x260?text=No+Cover'"
+        />
     </div>
 
     <div class="card-body">
-        <div class="card-title">{{ book.title }}</div>
+
+        <div class="card-top">
+            <div class="card-title">{{ book.title }}</div>
+
+            <button
+                    class="favorite-btn"
+                    [class.active]="isFavorite"
+                    [disabled]="isProcessing"
+                    (click)="toggleLike($event)"
+            >
+                <img
+                        class="heart"
+                        [src]="isFavorite ? 'icons/heart.png' : 'icons/like.png'"
+                        alt="favorite"
+                />
+            </button>
+        </div>
+
         <div class="card-author">by {{ book.author_name }}</div>
 
         <div class="card-rating">
@@ -23,5 +37,6 @@
         <div class="card-tags">
             <span class="tag" *ngIf="book.genre">{{ book.genre }}</span>
         </div>
+
     </div>
 </div>
