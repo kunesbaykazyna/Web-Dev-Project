@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (
     ReviewListCreateView, ReviewDetailView, FavoriteToggleView, UserFavoritesListView,
-    ReviewLikeToggleView, ReviewCommentListCreateView, ReviewCommentDetailView
+    ReviewLikeToggleView, ReviewCommentListCreateView, ReviewCommentDetailView,
+    MyReviewsView
 )
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
     path('comments/<int:pk>/', ReviewCommentDetailView.as_view(), name='review-comment-detail'),
     path('favorites/toggle/', FavoriteToggleView.as_view(), name='favorite-toggle'),
     path('favorites/', UserFavoritesListView.as_view(), name='user-favorites'),
+    path('my/', MyReviewsView.as_view(), name='my-reviews'),
 ]

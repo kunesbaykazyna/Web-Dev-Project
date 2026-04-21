@@ -95,6 +95,9 @@ export class BookDetailComponent implements OnInit {
         this.newReviewRating = 5;
         this.submittingReview = false;
         this.loadReviews(bookId);
+        this.bookService.getBook(bookId).subscribe({
+          next: (data) => { this.book = data; this.cdr.detectChanges(); }
+        });
       },
       error: () => {
         this.submittingReview = false;

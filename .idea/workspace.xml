@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a430035f-0b4c-4799-838f-81f50b0695b8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-review/src/app/components/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/book-review/src/app/components/profile/profile.component.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3C7LblBHR4hpGM9DPJO4puGifD8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.localhost:4200.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "C:/Users/Aspire 3/Desktop/Web-Dev-Project/book-review/public/icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aspire 3\Desktop\Web-Dev-Project\book-review\public\icons" />
+      <recent name="C:\Users\Aspire 3\Desktop\Web-Dev-Project\book-review\src\assets\icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aspire 3\Desktop\Web-Dev-Project\book-review\public" />
+      <recent name="C:\Users\Aspire 3\Desktop\Web-Dev-Project\book-review\src\app\services" />
+      <recent name="C:\Users\Aspire 3\Desktop\Web-Dev-Project\book-review\src\app\pages\books-list" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="localhost:4200" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:4200/">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:4200" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a430035f-0b4c-4799-838f-81f50b0695b8" name="Changes" comment="" />
+      <created>1775731735408</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775731735408</updated>
+      <workItem from="1775731737206" duration="6345000" />
+      <workItem from="1775997637544" duration="10133000" />
+      <workItem from="1776089307381" duration="10191000" />
+      <workItem from="1776157455320" duration="10819000" />
+      <workItem from="1776222459140" duration="2092000" />
+      <workItem from="1776229292926" duration="8013000" />
+      <workItem from="1776507679166" duration="19451000" />
+      <workItem from="1776538651137" duration="1655000" />
+      <workItem from="1776583636559" duration="5542000" />
+      <workItem from="1776666188087" duration="655000" />
+      <workItem from="1776696798587" duration="1350000" />
+      <workItem from="1776707715709" duration="140000" />
+      <workItem from="1776707866919" duration="5324000" />
+      <workItem from="1776754871791" duration="3714000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

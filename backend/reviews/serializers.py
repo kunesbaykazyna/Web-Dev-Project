@@ -18,6 +18,7 @@ class ReviewCommentSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     user_username = serializers.ReadOnlyField(source='user.username')
     user_id = serializers.ReadOnlyField(source='user.id')
+    book_title = serializers.ReadOnlyField(source='book.title')  # ← добавили
     like_count = serializers.SerializerMethodField()
     is_liked = serializers.SerializerMethodField()
     comments = ReviewCommentSerializer(many=True, read_only=True)
@@ -40,6 +41,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = [
             'id', 'book', 'user', 'user_id', 'user_username',
+            'book_title',
             'text', 'rating', 'created_at',
             'like_count', 'is_liked', 'is_owner', 'comments'
         ]

@@ -76,3 +76,12 @@ class UserFavoritesListView(generics.ListAPIView):
 
     def get_queryset(self):
         return Favorite.objects.filter(user=self.request.user)
+
+class MyReviewsView(generics.ListAPIView):
+    serializer_class = ReviewSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Review.objects.filter(
+            user=self.request.user
+        ).select_related('user', 'book').order_by('-created_at')
