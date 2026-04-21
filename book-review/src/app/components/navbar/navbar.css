@@ -10,7 +10,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #1e3463;
+    background: #0b615a;
     color: white;
     display: flex;
     justify-content: center;
@@ -69,7 +69,7 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    margin-left: -50px;
+    margin-left: -50px; 
 }
 
 .logo-icon {
@@ -107,7 +107,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transform: translate(820px, 0px);
+    margin-left: auto;
 }
 
 .btn-signin {
@@ -132,29 +132,76 @@
     background: var(--primary-dark);
 }
 
+/* 1. Главный контейнер — фиксируем высоту, чтобы ничего не прыгало */
 .user-chip {
     display: flex;
     align-items: center;
-    gap: 8px;
+    background: #ffffff;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    height: 42px; /* Фиксированная высота */
+    padding: 0;   /* Обнуляем падинги, их заменят внутренние элементы */
+    overflow: hidden; /* ОБЯЗАТЕЛЬНО: обрезает фон ховера по скруглению */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 2. Левая часть (Профиль) */
+.profile-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px; /* Внутренние отступы */
+    height: 100%;
+    text-decoration: none;
+    color: #333;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+.profile-link-btn:hover {
+    background: #f8f9fa; /* Тонкий серый фон при наведении на имя */
+}
+
+/* 3. Правая часть (Кнопка Выхода) */
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;      /* Фиксированная ширина, чтобы кнопка не «гуляла» */
+    height: 100%;
+    border: none !important;
+    background: transparent !important;
+    color: #ff4d4f;
     cursor: pointer;
-    padding: 4px 10px;
-    border-radius: 24px;
-    border: 1.5px solid var(--border);
+    margin: 0;
+    padding: 0;
+    transition: background 0.2s ease, color 0.2s ease;
+    /* УБРАЛИ transform: scale — он создавал эффект сдвига */
 }
 
-.avatar {
-    width: 28px;
-    height: 28px;
+.logout-btn:hover {
+    background: #fff1f0 !important; /* Мягкий красный фон при наведении */
+    color: #cf1322;
+}
+
+/* 4. Центрируем иконку внутри кнопки */
+.logout-btn svg {
+    display: block;
+    margin: 0 auto;
+}
+
+/* 5. Аватар */
+.initials-avatar {
+    width: 30px !important;
+    height: 30px !important;
+    background: #137874 !important;
+    color: white;
     border-radius: 50%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
 }
 
-.user-chip span {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.chevron {
-    color: #aaa;
-    font-size: 12px;
-}

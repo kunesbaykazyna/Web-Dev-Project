@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Author, Book
+from .models import Author, Book, Favorite
+from django.contrib.auth import get_user_model
 
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -9,13 +10,8 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = [
-            'id',
-            'first_name',
-            'last_name',
-            'full_name',
-            'bio',
-            'birth_date',
-            'book_count',
+            'id', 'first_name', 'last_name', 'full_name',
+            'bio', 'birth_date', 'book_count',
         ]
 
     def get_book_count(self, obj):
@@ -25,18 +21,25 @@ class AuthorSerializer(serializers.ModelSerializer):
 class BookListSerializer(serializers.ModelSerializer):
     author_name = serializers.CharField(source='author.full_name', read_only=True)
     average_rating = serializers.FloatField(read_only=True)
+    is_favorite = serializers.SerializerMethodField()
 
     class Meta:
         model = Book
         fields = [
-            'id',
-            'title',
-            'author_name',
-            'genre',
-            'cover_image',
-            'published_date',
-            'average_rating',
+            'id', 'title', 'author_name', 'genre',
+            'cover_image', 'published_date', 'average_rating', 'is_favorite',
         ]
+
+    def get_is_favorite(self, obj):
+        request = self.context.get('request')
+        user = None
+        if request and hasattr(request, 'user') and request.user.is_authenticated:
+            user = request.user
+        else:
+            user = get_user_model().objects.first()
+        if user:
+            return Favorite.objects.filter(user=user, book=obj).exists()
+        return False
 
 
 class BookDetailSerializer(serializers.ModelSerializer):
@@ -47,22 +50,39 @@ class BookDetailSerializer(serializers.ModelSerializer):
         write_only=True
     )
     average_rating = serializers.SerializerMethodField()
+    is_favorite = serializers.SerializerMethodField()
 
     class Meta:
         model = Book
         fields = [
-            'id',
-            'title',
-            'author',
-            'author_id',
-            'description',
-            'published_date',
-            'isbn',
-            'genre',
-            'cover_image',
-            'created_at',
-            'average_rating',
+            'id', 'title', 'author', 'author_id', 'description',
+            'published_date', 'isbn', 'genre', 'cover_image',
+            'created_at', 'average_rating', 'is_favorite',
         ]
 
     def get_average_rating(self, obj):
-        return obj.average_rating
+        return getattr(obj, 'average_rating', 0)
+
+    def get_is_favorite(self, obj):
+        request = self.context.get('request')
+        user = None
+        if request and hasattr(request, 'user') and request.user.is_authenticated:
+            user = request.user
+        else:
+            user = get_user_model().objects.first()
+        if user:
+            return Favorite.objects.filter(user=user, book=obj).exists()
+        return False
+
+
+
+class BookStatsSerializer(serializers.Serializer):
+    total_books = serializers.IntegerField()
+    total_authors = serializers.IntegerField()
+    genres = serializers.ListField(child=serializers.CharField())
+
+
+class AuthorBooksSerializer(serializers.Serializer):
+    author = serializers.CharField()
+    books_count = serializers.IntegerField()
+    books = BookListSerializer(many=True)

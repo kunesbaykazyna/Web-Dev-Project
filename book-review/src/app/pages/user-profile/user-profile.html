@@ -1,0 +1,89 @@
+<div class="page">
+    <a routerLink="/books" class="back-btn">← Back to books</a>
+
+    <div class="loading" *ngIf="loading">
+        <div class="spinner"></div>
+        <p>Loading profile...</p>
+    </div>
+
+    <div class="error-msg" *ngIf="error">{{ error }}</div>
+
+    <div *ngIf="profile && !loading">
+        <!-- Profile Header -->
+        <div class="profile-card">
+            <div class="avatar-big">
+                {{ (profile.username || 'U').charAt(0).toUpperCase() }}
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-username">{{ profile.username }}</h1>
+                <p class="profile-location" *ngIf="profile.location">
+                    📍 {{ profile.location }}
+                </p>
+                <p class="profile-bio" *ngIf="profile.bio">{{ profile.bio }}</p>
+                <p class="profile-bio muted" *ngIf="!profile.bio">No bio yet.</p>
+
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-num">{{ (profile.reviews || []).length }}</span>
+                        <span class="stat-label">Reviews</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">{{ (profile.comments || []).length }}</span>
+                        <span class="stat-label">Comments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button
+                class="tab-btn"
+                [class.active]="activeTab === 'reviews'"
+                (click)="activeTab = 'reviews'"
+            >
+                Reviews ({{ (profile.reviews || []).length }})
+            </button>
+            <button
+                class="tab-btn"
+                [class.active]="activeTab === 'comments'"
+                (click)="activeTab = 'comments'"
+            >
+                Comments ({{ (profile.comments || []).length }})
+            </button>
+        </div>
+
+        <!-- Reviews Tab -->
+        <div *ngIf="activeTab === 'reviews'">
+            <div *ngIf="(profile.reviews || []).length === 0" class="empty-msg">
+                No reviews yet.
+            </div>
+            <div class="item-card" *ngFor="let review of profile.reviews">
+                <div class="item-header">
+                    <a [routerLink]="['/books', review.book_id]" class="book-link">
+                        📖 {{ review.book_title }}
+                    </a>
+                    <span class="item-stars">{{ getStars(review.rating) }}</span>
+                </div>
+                <p class="item-text">{{ review.text }}</p>
+                <span class="item-date">{{ review.created_at | date:'dd MMM yyyy' }}</span>
+            </div>
+        </div>
+
+        <!-- Comments Tab -->
+        <div *ngIf="activeTab === 'comments'">
+            <div *ngIf="(profile.comments || []).length === 0" class="empty-msg">
+                No comments yet.
+            </div>
+            <div class="item-card" *ngFor="let comment of profile.comments">
+                <div class="item-header">
+                    <a [routerLink]="['/books', comment.book_id]" class="book-link">
+                        📖 {{ comment.book_title }}
+                    </a>
+                    <span class="item-date">{{ comment.created_at | date:'dd MMM yyyy' }}</span>
+                </div>
+                <p class="item-text">{{ comment.text }}</p>
+            </div>
+        </div>
+    </div>
+</div>
