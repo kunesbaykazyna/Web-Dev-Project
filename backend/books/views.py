@@ -20,19 +20,27 @@ from .serializers import (
     AuthorBooksSerializer,
 )
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 class FavoriteToggleView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
         book_id = request.data.get('book_id')
+
         if not book_id:
-            return Response({"error": "Book ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "Book ID is required"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         user = request.user if request.user.is_authenticated else get_user_model().objects.first()
 
         if not user:
-            return Response({"error": "No user found in database"}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"error": "No user found in database"},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
         try:
             book = Book.objects.get(id=book_id)
@@ -40,12 +48,21 @@ class FavoriteToggleView(APIView):
 
             if not created:
                 favorite.delete()
-                return Response({"is_favorite": False, "message": "Removed from favorites"}, status=status.HTTP_200_OK)
+                return Response(
+                    {"is_favorite": False, "message": "Removed from favorites"},
+                    status=status.HTTP_200_OK
+                )
 
-            return Response({"is_favorite": True, "message": "Added to favorites"}, status=status.HTTP_201_CREATED)
+            return Response(
+                {"is_favorite": True, "message": "Added to favorites"},
+                status=status.HTTP_201_CREATED
+            )
 
         except Book.DoesNotExist:
-            return Response({"error": "Book not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"error": "Book not found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
 
 class BookListView(generics.ListAPIView):
@@ -61,12 +78,22 @@ class BookListView(generics.ListAPIView):
             avg_rating=Avg('reviews__rating')
         )
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+
 
 class BookDetailView(generics.RetrieveAPIView):
     serializer_class = BookDetailSerializer
 
     def get_queryset(self):
         return Book.objects.select_related('author').prefetch_related('reviews')
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
 
 
 class AuthorListView(generics.ListAPIView):
@@ -91,9 +118,14 @@ class FavoriteListView(generics.ListAPIView):
         if not user:
             return Book.objects.none()
 
-        return Book.objects.filter(favorites__user=user).annotate(
+        return Book.objects.filter(favorites__user=user).select_related('author').annotate(
             avg_rating=Avg('reviews__rating')
         )
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
 
 
 @api_view(['GET'])
@@ -112,11 +144,16 @@ def book_stats_view(request):
 @permission_classes([AllowAny])
 def author_books_view(request, author_id):
     author = get_object_or_404(Author, id=author_id)
-    books = Book.objects.filter(author=author).annotate(avg_rating=Avg('reviews__rating'))
+
+    books = Book.objects.filter(author=author).select_related('author').annotate(
+        avg_rating=Avg('reviews__rating')
+    )
+
     data = {
         'author': author.full_name,
         'books_count': books.count(),
-        'books': BookListSerializer(books, many=True).data
+        'books': books
     }
-    serializer = AuthorBooksSerializer(data)
+
+    serializer = AuthorBooksSerializer(data, context={'request': request})
     return Response(serializer.data)
