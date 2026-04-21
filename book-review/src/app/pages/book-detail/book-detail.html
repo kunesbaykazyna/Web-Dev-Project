@@ -22,7 +22,13 @@
             <h1 class="detail-title">{{ book.title }}</h1>
             <p class="detail-author">
                 <img src="/icons/writer.png" class="detail-icon" alt="writer">
-                {{ book.author.full_name }}
+
+                <a
+                        class="author-link"
+                        [routerLink]="['/authors', book.author.id]"
+                >
+                    {{ book.author.full_name }}
+                </a>
             </p>
 
             <div class="detail-rating">
@@ -49,11 +55,9 @@
         </div>
     </div>
 
-    <!-- Reviews Section -->
     <div class="reviews-section" *ngIf="book && !loading">
         <h2 class="reviews-title">Reviews <span class="reviews-count">{{ reviews.length }}</span></h2>
 
-        <!-- Add Review Form -->
         <div class="add-review-card" *ngIf="isLoggedIn">
             <h3>Leave a Review</h3>
             <div class="rating-select">
@@ -85,7 +89,6 @@
             <a routerLink="/login">Log in</a> to leave a review.
         </div>
 
-        <!-- Reviews List -->
         <div class="reviews-loading" *ngIf="reviewsLoading">
             <div class="spinner"></div>
         </div>
@@ -95,7 +98,6 @@
         </div>
 
         <div class="review-card" *ngFor="let review of reviews">
-            <!-- Edit mode -->
             <div *ngIf="editingReview?.id === review.id; else viewReview">
                 <div class="rating-select">
                     <label>Rating:</label>
@@ -159,7 +161,6 @@
                 </div>
             </ng-template>
 
-            <!-- Comments Section -->
             <div class="comments-section" *ngIf="isCommentsExpanded(review.id)">
                 <div class="comment" *ngFor="let comment of review.comments">
                     <div class="comment-header">
