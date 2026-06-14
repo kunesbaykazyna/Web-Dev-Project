@@ -1,0 +1,18 @@
+<div class="favorites-container">
+    <h2>My Favorite Books</h2>
+
+    <div *ngIf="isLoading" class="loading-spinner">
+        <p>loading.....</p>
+    </div>
+
+    <div class="books-grid" *ngIf="!isLoading && favoriteBooks.length > 0">
+        <app-book-card *ngFor="let book of favoriteBooks" [book]="book">
+        </app-book-card>
+    </div>
+
+    <div class="empty-state" *ngIf="!isLoading && favoriteBooks.length === 0">
+        <div class="icon">❤️</div>
+        <p>You haven't added any books to your favorites yet.</p>
+        <a routerLink="/books" class="browse-btn">Browse Books</a>
+    </div>
+</div>

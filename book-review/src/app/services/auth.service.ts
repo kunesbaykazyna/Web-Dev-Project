@@ -16,16 +16,16 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/register/`, data);
   }
 
-  login(data: any) {
-    return this.http.post<{access: string}>(`${this.apiUrl}/login/`, data).pipe(
-      tap(res => {
-        localStorage.setItem('token', res.access);
-        this.currentUser.set(res.access);
-        localStorage.setItem('username', data.username);
-        this.currentUser.set(data.username);
-      })
-    );
-  }
+login(data: any) {
+  return this.http.post<{access: string}>(`${this.apiUrl}/login/`, data).pipe(
+    tap(res => {
+      localStorage.setItem('token', res.access);
+      localStorage.setItem('username', data.username);
+      this.currentUser.set(data.username); 
+    })
+  );
+}
+
 
   logout() {
     localStorage.removeItem('token');

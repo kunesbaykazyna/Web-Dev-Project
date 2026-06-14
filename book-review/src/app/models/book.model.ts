@@ -20,4 +20,8 @@ export interface Book {
     cover_image: string;
     created_at: string;
     average_rating: number | null;
+   
+     image?: string;
+     genre_name?: string;
+     is_favorite:boolean;
 }

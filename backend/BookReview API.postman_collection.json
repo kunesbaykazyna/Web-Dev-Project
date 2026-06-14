@@ -1,0 +1,1234 @@
+{
+  "info": {
+    "_postman_id": "3f3156a6-6c84-4dc3-bf05-29155616747f",
+    "name": "BookReview API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53617990",
+    "_collection_link": "https://go.postman.co/collection/53617990-3f3156a6-6c84-4dc3-bf05-29155616747f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Register",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"testuser\",\r\n  \"password\": \"test1234\",\r\n  \"password_confirm\": \"test1234\",\r\n  \"email\": \"test@mail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/register/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "register",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:53:07 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "47"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@mail.com\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"testuser\",\r\n  \"password\": \"test1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/login/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "login",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:53:55 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "489"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3NzQwMjQzNSwiaWF0IjoxNzc2Nzk3NjM1LCJqdGkiOiIwY2RkNThiNDUzZGM0ZDk5YTMyNDZiN2ZkNDBlMzI2NSIsInVzZXJfaWQiOiI1In0.N7jnu-qKy4w0XeC9ZFdVRgK7nL0aevM3CsJDbZvyp6Y\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODAxMjM1LCJpYXQiOjE3NzY3OTc2MzUsImp0aSI6ImE4ODdhY2U3NjE1MjRjZWE4ZjNkOGRkZGU0M2ZmMDllIiwidXNlcl9pZCI6IjUifQ.h_NVJteDjT8Eku7zyTN02mFFNs2ACx8ZaSNnn8x_qkk\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get all books",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get all books",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/books/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "books",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:55:07 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "12498"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 198,\n        \"title\": \"Neuromancer\",\n        \"author_name\": \"William Gibson\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0441569595.01.L.jpg\",\n        \"published_date\": \"1984-01-01\",\n        \"average_rating\": 3.5,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 197,\n        \"title\": \"Ready Player One\",\n        \"author_name\": \"Ernest Cline\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0307887448.01.L.jpg\",\n        \"published_date\": \"2011-01-01\",\n        \"average_rating\": 4.5,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 196,\n        \"title\": \"The Martian\",\n        \"author_name\": \"Andy Weir\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0553418025.01.L.jpg\",\n        \"published_date\": \"2011-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 195,\n        \"title\": \"Gone Girl\",\n        \"author_name\": \"Gillian Flynn\",\n        \"genre\": \"Thriller\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0307588378.01.L.jpg\",\n        \"published_date\": \"2012-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 194,\n        \"title\": \"The Da Vinci Code\",\n        \"author_name\": \"Dan Brown\",\n        \"genre\": \"Thriller\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0307474275.01.L.jpg\",\n        \"published_date\": \"2003-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 193,\n        \"title\": \"Frankenstein\",\n        \"author_name\": \"Mary Shelley\",\n        \"genre\": \"Horror\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0486282112.01.L.jpg\",\n        \"published_date\": \"1818-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 192,\n        \"title\": \"Dracula\",\n        \"author_name\": \"Bram Stoker\",\n        \"genre\": \"Horror\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0486411095.01.L.jpg\",\n        \"published_date\": \"1897-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 191,\n        \"title\": \"It\",\n        \"author_name\": \"Stephen King\",\n        \"genre\": \"Horror\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/1501142976.01.L.jpg\",\n        \"published_date\": \"1986-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 190,\n        \"title\": \"The Shining\",\n        \"author_name\": \"Stephen King\",\n        \"genre\": \"Horror\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0307743659.01.L.jpg\",\n        \"published_date\": \"1977-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 189,\n        \"title\": \"Pride and Prejudice\",\n        \"author_name\": \"Jane Austen\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0141439513.01.L.jpg\",\n        \"published_date\": \"1813-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 188,\n        \"title\": \"Me Before You\",\n        \"author_name\": \"Jojo Moyes\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0143124544.01.L.jpg\",\n        \"published_date\": \"2012-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 187,\n        \"title\": \"The Fault in Our Stars\",\n        \"author_name\": \"John Green\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/014242417X.01.L.jpg\",\n        \"published_date\": \"2012-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 186,\n        \"title\": \"The Chronicles of Narnia\",\n        \"author_name\": \"C.S. Lewis\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0066238501.01.L.jpg\",\n        \"published_date\": \"1956-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 185,\n        \"title\": \"Harry Potter and the Deathly Hallows\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0545010225.01.L.jpg\",\n        \"published_date\": \"2007-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 184,\n        \"title\": \"Harry Potter and the Half-Blood Prince\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439785960.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 183,\n        \"title\": \"Harry Potter and the Order of the Phoenix\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439358078.01.L.jpg\",\n        \"published_date\": \"2003-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 182,\n        \"title\": \"Harry Potter and the Goblet of Fire\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439139600.01.L.jpg\",\n        \"published_date\": \"2000-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 181,\n        \"title\": \"Harry Potter and the Prisoner of Azkaban\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439136369.01.L.jpg\",\n        \"published_date\": \"1999-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 180,\n        \"title\": \"The Lord of the Rings: The Two Towers\",\n        \"author_name\": \"J.R.R. Tolkien\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0547928203.01.L.jpg\",\n        \"published_date\": \"1954-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 179,\n        \"title\": \"Educated\",\n        \"author_name\": \"Tara Westover\",\n        \"genre\": \"History\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0399590501.01.L.jpg\",\n        \"published_date\": \"2018-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 178,\n        \"title\": \"The Help\",\n        \"author_name\": \"Kathryn Stockett\",\n        \"genre\": \"History\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0425232204.01.L.jpg\",\n        \"published_date\": \"2009-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 177,\n        \"title\": \"Coraline\",\n        \"author_name\": \"Neil Gaiman\",\n        \"genre\": \"Horror\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0061139378.01.L.jpg\",\n        \"published_date\": \"2002-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 176,\n        \"title\": \"The Road\",\n        \"author_name\": \"Cormac McCarthy\",\n        \"genre\": \"Horror\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0307387895.01.L.jpg\",\n        \"published_date\": \"2006-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 175,\n        \"title\": \"Shutter Island\",\n        \"author_name\": \"Dennis Lehane\",\n        \"genre\": \"Thriller\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0061703230.01.L.jpg\",\n        \"published_date\": \"2003-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 174,\n        \"title\": \"The Girl on the Train\",\n        \"author_name\": \"Paula Hawkins\",\n        \"genre\": \"Thriller\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/1594634025.01.L.jpg\",\n        \"published_date\": \"2015-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 173,\n        \"title\": \"Breaking Dawn\",\n        \"author_name\": \"Stephenie Meyer\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/031606792X.01.L.jpg\",\n        \"published_date\": \"2008-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 172,\n        \"title\": \"Eclipse\",\n        \"author_name\": \"Stephenie Meyer\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0316160202.01.L.jpg\",\n        \"published_date\": \"2007-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 171,\n        \"title\": \"New Moon\",\n        \"author_name\": \"Stephenie Meyer\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0316160199.01.L.jpg\",\n        \"published_date\": \"2006-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 170,\n        \"title\": \"Twilight\",\n        \"author_name\": \"Stephenie Meyer\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0316015849.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 169,\n        \"title\": \"The Lightning Thief\",\n        \"author_name\": \"Rick Riordan\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0786838655.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 168,\n        \"title\": \"The Maze Runner\",\n        \"author_name\": \"James Dashner\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0385737955.01.L.jpg\",\n        \"published_date\": \"2009-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 167,\n        \"title\": \"Mockingjay\",\n        \"author_name\": \"Suzanne Collins\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439023513.01.L.jpg\",\n        \"published_date\": \"2010-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 166,\n        \"title\": \"Catching Fire\",\n        \"author_name\": \"Suzanne Collins\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439023491.01.L.jpg\",\n        \"published_date\": \"2009-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 165,\n        \"title\": \"The Hunger Games\",\n        \"author_name\": \"Suzanne Collins\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439023483.01.L.jpg\",\n        \"published_date\": \"2008-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 164,\n        \"title\": \"The Book Thief\",\n        \"author_name\": \"Markus Zusak\",\n        \"genre\": \"History\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0375842209.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 163,\n        \"title\": \"The Catcher in the Rye\",\n        \"author_name\": \"J.D. Salinger\",\n        \"genre\": \"Classic\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0316769487.01.L.jpg\",\n        \"published_date\": \"1951-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 162,\n        \"title\": \"To Kill a Mockingbird\",\n        \"author_name\": \"Harper Lee\",\n        \"genre\": \"Classic\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0061120081.01.L.jpg\",\n        \"published_date\": \"1960-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 161,\n        \"title\": \"The Alchemist\",\n        \"author_name\": \"Paulo Coelho\",\n        \"genre\": \"Classic\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0061122416.01.L.jpg\",\n        \"published_date\": \"1988-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 160,\n        \"title\": \"Harry Potter and the Sorcerer's Stone\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439708184.01.L.jpg\",\n        \"published_date\": \"1997-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 159,\n        \"title\": \"The Hobbit\",\n        \"author_name\": \"J.R.R. Tolkien\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/054792822X.01.L.jpg\",\n        \"published_date\": \"1937-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 158,\n        \"title\": \"A Game of Thrones\",\n        \"author_name\": \"George R.R. Martin\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0553593714.01.L.jpg\",\n        \"published_date\": \"1996-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 157,\n        \"title\": \"Dune\",\n        \"author_name\": \"Frank Herbert\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0441172717.01.L.jpg\",\n        \"published_date\": \"1965-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 156,\n        \"title\": \"1984\",\n        \"author_name\": \"George Orwell\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0451524934.01.L.jpg\",\n        \"published_date\": \"1949-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 155,\n        \"title\": \"The Silent Patient\",\n        \"author_name\": \"Alex Michaelides\",\n        \"genre\": \"Thriller\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/1250301696.01.L.jpg\",\n        \"published_date\": \"2019-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 154,\n        \"title\": \"The Great Gatsby\",\n        \"author_name\": \"F. Scott Fitzgerald\",\n        \"genre\": \"Classic\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0743273567.01.L.jpg\",\n        \"published_date\": \"1925-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 153,\n        \"title\": \"Crime and Punishment\",\n        \"author_name\": \"Fyodor Dostoevsky\",\n        \"genre\": \"Classic\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0143058142.01.L.jpg\",\n        \"published_date\": \"1866-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 152,\n        \"title\": \"Sapiens\",\n        \"author_name\": \"Yuval Noah Harari\",\n        \"genre\": \"History\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0062316095.01.L.jpg\",\n        \"published_date\": \"2011-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 151,\n        \"title\": \"The Diary of a Young Girl\",\n        \"author_name\": \"Anne Frank\",\n        \"genre\": \"History\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0553296981.01.L.jpg\",\n        \"published_date\": \"1947-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 150,\n        \"title\": \"Brave New World\",\n        \"author_name\": \"Aldous Huxley\",\n        \"genre\": \"Science Fiction\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0060850523.01.L.jpg\",\n        \"published_date\": \"1932-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 149,\n        \"title\": \"Big Little Lies\",\n        \"author_name\": \"Liane Moriarty\",\n        \"genre\": \"Thriller\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0425274861.01.L.jpg\",\n        \"published_date\": \"2014-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 148,\n        \"title\": \"Outlander\",\n        \"author_name\": \"Diana Gabaldon\",\n        \"genre\": \"Romance\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0440212561.01.L.jpg\",\n        \"published_date\": \"1991-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get book by ID",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get book by ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/books/198/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "books",
+                "198",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:56:45 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "885"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 198,\n    \"title\": \"Neuromancer\",\n    \"author\": {\n        \"id\": 123,\n        \"first_name\": \"William\",\n        \"last_name\": \"Gibson\",\n        \"full_name\": \"William Gibson\",\n        \"bio\": \"William Gibson is a Canadian-American speculative fiction author best known for Neuromancer. He helped define the cyberpunk genre and imagined many future technologies.\",\n        \"birth_date\": \"1948-03-17\",\n        \"book_count\": 1\n    },\n    \"description\": \"Case, a washed-up computer hacker, is hired for a final dangerous job that draws him into a world of artificial intelligence, cybercrime, and corporate power. As he moves through a dark futuristic landscape, the novel defines cyberpunk with its visionary style and technological intensity.\",\n    \"published_date\": \"1984-01-01\",\n    \"isbn\": null,\n    \"genre\": \"Science Fiction\",\n    \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0441569595.01.L.jpg\",\n    \"created_at\": \"2026-04-18T13:39:43.350772Z\",\n    \"average_rating\": 3.5,\n    \"is_favorite\": true\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search books",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Search books",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/books/?search=harry",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "books",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "harry"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:57:07 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1584"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 185,\n        \"title\": \"Harry Potter and the Deathly Hallows\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0545010225.01.L.jpg\",\n        \"published_date\": \"2007-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 184,\n        \"title\": \"Harry Potter and the Half-Blood Prince\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439785960.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 183,\n        \"title\": \"Harry Potter and the Order of the Phoenix\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439358078.01.L.jpg\",\n        \"published_date\": \"2003-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 182,\n        \"title\": \"Harry Potter and the Goblet of Fire\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439139600.01.L.jpg\",\n        \"published_date\": \"2000-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 181,\n        \"title\": \"Harry Potter and the Prisoner of Azkaban\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439136369.01.L.jpg\",\n        \"published_date\": \"1999-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 160,\n        \"title\": \"Harry Potter and the Sorcerer's Stone\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439708184.01.L.jpg\",\n        \"published_date\": \"1997-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Filter by genre",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Filter by genre",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/books/?genre=Fantasy",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "books",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "genre",
+                  "value": "Fantasy"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:57:28 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2828"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 186,\n        \"title\": \"The Chronicles of Narnia\",\n        \"author_name\": \"C.S. Lewis\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0066238501.01.L.jpg\",\n        \"published_date\": \"1956-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": true\n    },\n    {\n        \"id\": 185,\n        \"title\": \"Harry Potter and the Deathly Hallows\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0545010225.01.L.jpg\",\n        \"published_date\": \"2007-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 184,\n        \"title\": \"Harry Potter and the Half-Blood Prince\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439785960.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 183,\n        \"title\": \"Harry Potter and the Order of the Phoenix\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439358078.01.L.jpg\",\n        \"published_date\": \"2003-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 182,\n        \"title\": \"Harry Potter and the Goblet of Fire\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439139600.01.L.jpg\",\n        \"published_date\": \"2000-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 181,\n        \"title\": \"Harry Potter and the Prisoner of Azkaban\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439136369.01.L.jpg\",\n        \"published_date\": \"1999-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 180,\n        \"title\": \"The Lord of the Rings: The Two Towers\",\n        \"author_name\": \"J.R.R. Tolkien\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0547928203.01.L.jpg\",\n        \"published_date\": \"1954-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 169,\n        \"title\": \"The Lightning Thief\",\n        \"author_name\": \"Rick Riordan\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0786838655.01.L.jpg\",\n        \"published_date\": \"2005-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 160,\n        \"title\": \"Harry Potter and the Sorcerer's Stone\",\n        \"author_name\": \"J.K. Rowling\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0439708184.01.L.jpg\",\n        \"published_date\": \"1997-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 159,\n        \"title\": \"The Hobbit\",\n        \"author_name\": \"J.R.R. Tolkien\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/054792822X.01.L.jpg\",\n        \"published_date\": \"1937-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    },\n    {\n        \"id\": 158,\n        \"title\": \"A Game of Thrones\",\n        \"author_name\": \"George R.R. Martin\",\n        \"genre\": \"Fantasy\",\n        \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0553593714.01.L.jpg\",\n        \"published_date\": \"1996-01-01\",\n        \"average_rating\": null,\n        \"is_favorite\": false\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Book stats (FBV)",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Book stats (FBV)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/books/stats/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "books",
+                "stats",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:57:47 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "638"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"total_books\": 51,\n    \"total_authors\": 39,\n    \"genres\": [\n        \"Science Fiction\",\n        \"Science Fiction\",\n        \"Science Fiction\",\n        \"Thriller\",\n        \"Thriller\",\n        \"Horror\",\n        \"Horror\",\n        \"Horror\",\n        \"Horror\",\n        \"Romance\",\n        \"Romance\",\n        \"Romance\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"History\",\n        \"History\",\n        \"Horror\",\n        \"Horror\",\n        \"Thriller\",\n        \"Thriller\",\n        \"Romance\",\n        \"Romance\",\n        \"Romance\",\n        \"Romance\",\n        \"Fantasy\",\n        \"Science Fiction\",\n        \"Science Fiction\",\n        \"Science Fiction\",\n        \"Science Fiction\",\n        \"History\",\n        \"Classic\",\n        \"Classic\",\n        \"Classic\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Fantasy\",\n        \"Science Fiction\",\n        \"Science Fiction\",\n        \"Thriller\",\n        \"Classic\",\n        \"Classic\",\n        \"History\",\n        \"History\",\n        \"Science Fiction\",\n        \"Thriller\",\n        \"Romance\"\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get all authors",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get all authors",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/authors/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "authors",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:58:20 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "13038"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 115,\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Austen\",\n        \"full_name\": \"Jane Austen\",\n        \"bio\": \"Jane Austen was an English novelist famous for Pride and Prejudice, Emma, and Sense and Sensibility. Her works explored marriage, class, and character through wit, irony, and unforgettable storytelling.\",\n        \"birth_date\": \"1775-12-16\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 119,\n        \"first_name\": \"Dan\",\n        \"last_name\": \"Brown\",\n        \"full_name\": \"Dan Brown\",\n        \"bio\": \"Dan Brown is an American thriller writer famous for The Da Vinci Code and other fast-paced mystery novels involving symbols, history, and secret societies.\",\n        \"birth_date\": \"1964-06-22\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 122,\n        \"first_name\": \"Ernest\",\n        \"last_name\": \"Cline\",\n        \"full_name\": \"Ernest Cline\",\n        \"bio\": \"Ernest Cline is an American writer known for Ready Player One, a pop-culture-filled science fiction adventure centered on virtual reality and gaming.\",\n        \"birth_date\": \"1972-03-29\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 98,\n        \"first_name\": \"Paulo\",\n        \"last_name\": \"Coelho\",\n        \"full_name\": \"Paulo Coelho\",\n        \"bio\": \"Paulo Coelho is a Brazilian novelist known worldwide for The Alchemist. His books focus on dreams, destiny, spirituality, and personal growth. He is one of the most translated living authors.\",\n        \"birth_date\": \"1947-08-24\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 102,\n        \"first_name\": \"Suzanne\",\n        \"last_name\": \"Collins\",\n        \"full_name\": \"Suzanne Collins\",\n        \"bio\": \"Suzanne Collins is an American writer best known for The Hunger Games trilogy. Her novels combine action, dystopian politics, and strong character development, gaining global popularity.\",\n        \"birth_date\": \"1962-08-10\",\n        \"book_count\": 3\n    },\n    {\n        \"id\": 103,\n        \"first_name\": \"James\",\n        \"last_name\": \"Dashner\",\n        \"full_name\": \"James Dashner\",\n        \"bio\": \"James Dashner is an American author famous for The Maze Runner series. His books are known for mystery, survival themes, and fast-paced dystopian adventures.\",\n        \"birth_date\": \"1972-11-26\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 90,\n        \"first_name\": \"Fyodor\",\n        \"last_name\": \"Dostoevsky\",\n        \"full_name\": \"Fyodor Dostoevsky\",\n        \"bio\": \"Fyodor Dostoevsky was a Russian novelist famous for deep psychological and philosophical literature. His major works include Crime and Punishment, The Brothers Karamazov, and The Idiot. He explored morality, guilt, faith, suffering, and the complexity of the human mind.\",\n        \"birth_date\": \"1821-11-11\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 120,\n        \"first_name\": \"Gillian\",\n        \"last_name\": \"Flynn\",\n        \"full_name\": \"Gillian Flynn\",\n        \"bio\": \"Gillian Flynn is an American author known for dark psychological thrillers such as Gone Girl. Her stories are famous for complex characters and shocking twists.\",\n        \"birth_date\": \"1971-02-24\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 88,\n        \"first_name\": \"Anne\",\n        \"last_name\": \"Frank\",\n        \"full_name\": \"Anne Frank\",\n        \"bio\": \"Anne Frank was a Jewish diarist whose writing became one of the most powerful personal accounts of World War II. Her diary, written while hiding from Nazi persecution, has inspired millions of readers around the world. Her words continue to symbolize hope, courage, and humanity.\",\n        \"birth_date\": \"1929-06-12\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 85,\n        \"first_name\": \"Diana\",\n        \"last_name\": \"Gabaldon\",\n        \"full_name\": \"Diana Gabaldon\",\n        \"bio\": \"Diana Gabaldon is an American author best known for the Outlander series, a bestselling blend of historical fiction, romance, fantasy, and adventure. Her novels are praised for rich historical detail, memorable characters, and emotional storytelling. Before becoming a full-time writer, she worked as a university professor and researcher.\",\n        \"birth_date\": \"1952-01-11\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 109,\n        \"first_name\": \"Neil\",\n        \"last_name\": \"Gaiman\",\n        \"full_name\": \"Neil Gaiman\",\n        \"bio\": \"Neil Gaiman is an English author known for fantasy, horror, and myth-inspired fiction including Coraline, American Gods, and The Sandman. His imagination and storytelling made him globally admired.\",\n        \"birth_date\": \"1960-11-10\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 123,\n        \"first_name\": \"William\",\n        \"last_name\": \"Gibson\",\n        \"full_name\": \"William Gibson\",\n        \"bio\": \"William Gibson is a Canadian-American speculative fiction author best known for Neuromancer. He helped define the cyberpunk genre and imagined many future technologies.\",\n        \"birth_date\": \"1948-03-17\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 113,\n        \"first_name\": \"John\",\n        \"last_name\": \"Green\",\n        \"full_name\": \"John Green\",\n        \"bio\": \"John Green is an American author known for young adult novels such as The Fault in Our Stars. His books explore love, loss, and growing up with humor and sincerity.\",\n        \"birth_date\": \"1977-08-24\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 106,\n        \"first_name\": \"Paula\",\n        \"last_name\": \"Hawkins\",\n        \"full_name\": \"Paula Hawkins\",\n        \"bio\": \"Paula Hawkins is a British author known for The Girl on the Train, an international psychological thriller bestseller. Her novels often explore memory, deception, and hidden lives.\",\n        \"birth_date\": \"1972-08-26\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 94,\n        \"first_name\": \"Frank\",\n        \"last_name\": \"Herbert\",\n        \"full_name\": \"Frank Herbert\",\n        \"bio\": \"Frank Herbert was an American science fiction writer best known for Dune, one of the most celebrated novels in the genre. His work combined politics, ecology, religion, and survival into an epic story that influenced generations of readers and creators.\",\n        \"birth_date\": \"1920-10-08\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 87,\n        \"first_name\": \"Aldous\",\n        \"last_name\": \"Huxley\",\n        \"full_name\": \"Aldous Huxley\",\n        \"bio\": \"Aldous Huxley was an English writer and philosopher best known for Brave New World, one of the most influential dystopian novels ever written. His works examined science, technology, politics, and human freedom. He remains an important literary voice of the twentieth century.\",\n        \"birth_date\": \"1894-07-26\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 116,\n        \"first_name\": \"Stephen\",\n        \"last_name\": \"King\",\n        \"full_name\": \"Stephen King\",\n        \"bio\": \"Stephen King is an American author widely known as the master of horror. He has written bestselling novels such as It, The Shining, Carrie, and many others across horror, fantasy, and suspense.\",\n        \"birth_date\": \"1947-09-21\",\n        \"book_count\": 2\n    },\n    {\n        \"id\": 99,\n        \"first_name\": \"Harper\",\n        \"last_name\": \"Lee\",\n        \"full_name\": \"Harper Lee\",\n        \"bio\": \"Harper Lee was an American novelist best known for To Kill a Mockingbird, a landmark novel about justice and racial inequality. Her work became one of the most respected books in modern literature.\",\n        \"birth_date\": \"1926-04-28\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 107,\n        \"first_name\": \"Dennis\",\n        \"last_name\": \"Lehane\",\n        \"full_name\": \"Dennis Lehane\",\n        \"bio\": \"Dennis Lehane is an American novelist and screenwriter known for crime fiction and thrillers such as Shutter Island and Mystic River. His stories are dark, emotional, and suspenseful.\",\n        \"birth_date\": \"1965-08-04\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 112,\n        \"first_name\": \"C.S.\",\n        \"last_name\": \"Lewis\",\n        \"full_name\": \"C.S. Lewis\",\n        \"bio\": \"C.S. Lewis was a British writer, scholar, and Christian thinker known for The Chronicles of Narnia. His works combined imagination, philosophy, and moral themes.\",\n        \"birth_date\": \"1898-11-29\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 108,\n        \"first_name\": \"Cormac\",\n        \"last_name\": \"McCarthy\",\n        \"full_name\": \"Cormac McCarthy\",\n        \"bio\": \"Cormac McCarthy was an American writer known for powerful and often bleak novels such as The Road, No Country for Old Men, and Blood Meridian. His style is distinctive, poetic, and intense.\",\n        \"birth_date\": \"1933-07-20\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 105,\n        \"first_name\": \"Stephenie\",\n        \"last_name\": \"Meyer\",\n        \"full_name\": \"Stephenie Meyer\",\n        \"bio\": \"Stephenie Meyer is an American novelist known for the Twilight saga. Her books became a worldwide cultural phenomenon and popularized paranormal romance for a new generation.\",\n        \"birth_date\": \"1973-12-24\",\n        \"book_count\": 4\n    },\n    {\n        \"id\": 92,\n        \"first_name\": \"Alex\",\n        \"last_name\": \"Michaelides\",\n        \"full_name\": \"Alex Michaelides\",\n        \"bio\": \"Alex Michaelides is a British-Cypriot author and screenwriter known for psychological thrillers. His debut novel The Silent Patient became a global bestseller. He is recognized for twist endings, suspenseful plots, and strong emotional tension.\",\n        \"birth_date\": \"1977-09-04\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 86,\n        \"first_name\": \"Liane\",\n        \"last_name\": \"Moriarty\",\n        \"full_name\": \"Liane Moriarty\",\n        \"bio\": \"Liane Moriarty is an Australian novelist known for compelling contemporary fiction that explores relationships, secrets, and family life. Her international bestseller Big Little Lies became a successful television adaptation. She is admired for combining suspense, humor, and emotional depth.\",\n        \"birth_date\": \"1966-11-15\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 114,\n        \"first_name\": \"Jojo\",\n        \"last_name\": \"Moyes\",\n        \"full_name\": \"Jojo Moyes\",\n        \"bio\": \"Jojo Moyes is a British novelist known for emotional contemporary romance including Me Before You. Her stories often focus on personal transformation and relationships.\",\n        \"birth_date\": \"1969-08-04\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 89,\n        \"first_name\": \"Yuval\",\n        \"last_name\": \"Noah Harari\",\n        \"full_name\": \"Yuval Noah Harari\",\n        \"bio\": \"Yuval Noah Harari is an Israeli historian and professor known worldwide for Sapiens, Homo Deus, and 21 Lessons for the 21st Century. His books explore history, technology, society, and the future of humanity in an accessible and thought-provoking style.\",\n        \"birth_date\": \"1976-02-24\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 93,\n        \"first_name\": \"George\",\n        \"last_name\": \"Orwell\",\n        \"full_name\": \"George Orwell\",\n        \"bio\": \"George Orwell was an English novelist, essayist, and journalist best known for 1984 and Animal Farm. His writing focused on totalitarianism, propaganda, censorship, and political truth. His ideas remain highly relevant in modern society.\",\n        \"birth_date\": \"1903-06-25\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 95,\n        \"first_name\": \"George\",\n        \"last_name\": \"R.R. Martin\",\n        \"full_name\": \"George R.R. Martin\",\n        \"bio\": \"George R.R. Martin is an American fantasy author and screenwriter famous for A Song of Ice and Fire, adapted as Game of Thrones. He is known for complex characters, political intrigue, and unpredictable storytelling.\",\n        \"birth_date\": \"1948-09-20\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 104,\n        \"first_name\": \"Rick\",\n        \"last_name\": \"Riordan\",\n        \"full_name\": \"Rick Riordan\",\n        \"bio\": \"Rick Riordan is an American author best known for Percy Jackson and other mythology-based adventures. He made ancient myths exciting and accessible for young readers worldwide.\",\n        \"birth_date\": \"1964-06-05\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 97,\n        \"first_name\": \"J.K.\",\n        \"last_name\": \"Rowling\",\n        \"full_name\": \"J.K. Rowling\",\n        \"bio\": \"J.K. Rowling is a British author best known for the Harry Potter series, one of the most successful literary franchises in history. Her books inspired millions of readers through themes of friendship, courage, and imagination.\",\n        \"birth_date\": \"1965-07-31\",\n        \"book_count\": 6\n    },\n    {\n        \"id\": 100,\n        \"first_name\": \"J.D.\",\n        \"last_name\": \"Salinger\",\n        \"full_name\": \"J.D. Salinger\",\n        \"bio\": \"J.D. Salinger was an American writer best known for The Catcher in the Rye. His work captured teenage alienation, identity, and the search for meaning. He remains an iconic literary figure.\",\n        \"birth_date\": \"1919-01-01\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 91,\n        \"first_name\": \"F.\",\n        \"last_name\": \"Scott Fitzgerald\",\n        \"full_name\": \"F. Scott Fitzgerald\",\n        \"bio\": \"F. Scott Fitzgerald was an American novelist and short story writer of the Jazz Age. He is best known for The Great Gatsby, a classic novel about ambition, wealth, and the American Dream. His elegant prose and social insight made him one of America’s greatest writers.\",\n        \"birth_date\": \"1896-09-24\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 118,\n        \"first_name\": \"Mary\",\n        \"last_name\": \"Shelley\",\n        \"full_name\": \"Mary Shelley\",\n        \"bio\": \"Mary Shelley was an English novelist best known for Frankenstein, a pioneering science fiction and gothic novel. Her work explored creation, responsibility, and ambition.\",\n        \"birth_date\": \"1797-08-30\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 110,\n        \"first_name\": \"Kathryn\",\n        \"last_name\": \"Stockett\",\n        \"full_name\": \"Kathryn Stockett\",\n        \"bio\": \"Kathryn Stockett is an American novelist best known for The Help, a bestselling historical novel about race, courage, and social change in the American South.\",\n        \"birth_date\": \"1969-01-01\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 117,\n        \"first_name\": \"Bram\",\n        \"last_name\": \"Stoker\",\n        \"full_name\": \"Bram Stoker\",\n        \"bio\": \"Bram Stoker was an Irish author best known for Dracula, one of the most influential horror novels ever written. His work shaped the modern vampire myth.\",\n        \"birth_date\": \"1847-11-08\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 96,\n        \"first_name\": \"J.R.R.\",\n        \"last_name\": \"Tolkien\",\n        \"full_name\": \"J.R.R. Tolkien\",\n        \"bio\": \"J.R.R. Tolkien was an English writer, scholar, and professor best known for The Hobbit and The Lord of the Rings. He created one of the richest fantasy worlds in literature and shaped the modern fantasy genre.\",\n        \"birth_date\": \"1892-01-03\",\n        \"book_count\": 2\n    },\n    {\n        \"id\": 121,\n        \"first_name\": \"Andy\",\n        \"last_name\": \"Weir\",\n        \"full_name\": \"Andy Weir\",\n        \"bio\": \"Andy Weir is an American novelist known for science-driven fiction including The Martian. His books combine realism, humor, and survival under extreme conditions.\",\n        \"birth_date\": \"1972-06-16\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 111,\n        \"first_name\": \"Tara\",\n        \"last_name\": \"Westover\",\n        \"full_name\": \"Tara Westover\",\n        \"bio\": \"Tara Westover is an American memoirist known for Educated, a bestselling autobiography about family, education, and self-discovery. Her story inspired readers around the world.\",\n        \"birth_date\": \"1986-09-27\",\n        \"book_count\": 1\n    },\n    {\n        \"id\": 101,\n        \"first_name\": \"Markus\",\n        \"last_name\": \"Zusak\",\n        \"full_name\": \"Markus Zusak\",\n        \"bio\": \"Markus Zusak is an Australian author known for The Book Thief, a bestselling novel set during World War II. His writing is praised for emotional storytelling and unique narrative style.\",\n        \"birth_date\": \"1975-06-23\",\n        \"book_count\": 1\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get author by ID",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get author by ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/authors/115/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "authors",
+                "115",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 18:59:03 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "329"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 115,\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Austen\",\n    \"full_name\": \"Jane Austen\",\n    \"bio\": \"Jane Austen was an English novelist famous for Pride and Prejudice, Emma, and Sense and Sensibility. Her works explored marriage, class, and character through wit, irony, and unforgettable storytelling.\",\n    \"birth_date\": \"1775-12-16\",\n    \"book_count\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get author books (FBV)",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get author books (FBV)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/authors/115/books/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "authors",
+                "115",
+                "books",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 19:16:47 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "OPTIONS, GET"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "294"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"author\": \"Jane Austen\",\n    \"books_count\": 1,\n    \"books\": [\n        {\n            \"id\": 189,\n            \"title\": \"Pride and Prejudice\",\n            \"author_name\": \"Jane Austen\",\n            \"genre\": \"Romance\",\n            \"cover_image\": \"https://images-na.ssl-images-amazon.com/images/P/0141439513.01.L.jpg\",\n            \"published_date\": \"1813-01-01\",\n            \"average_rating\": null,\n            \"is_favorite\": false\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get book reviews",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get book reviews",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODAxMjM1LCJpYXQiOjE3NzY3OTc2MzUsImp0aSI6ImE4ODdhY2U3NjE1MjRjZWE4ZjNkOGRkZGU0M2ZmMDllIiwidXNlcl9pZCI6IjUifQ.h_NVJteDjT8Eku7zyTN02mFFNs2ACx8ZaSNnn8x_qkk",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/reviews/books/198/reviews/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "reviews",
+                "books",
+                "198",
+                "reviews",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 19:20:40 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "630"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 3,\n        \"book\": 198,\n        \"user\": 2,\n        \"user_id\": 2,\n        \"user_username\": \"someuser\",\n        \"book_title\": \"Neuromancer\",\n        \"text\": \"good book\",\n        \"rating\": 5,\n        \"created_at\": \"2026-04-21T07:29:26.696054Z\",\n        \"like_count\": 1,\n        \"is_liked\": false,\n        \"is_owner\": false,\n        \"comments\": [\n            {\n                \"id\": 1,\n                \"review\": 3,\n                \"user_id\": 4,\n                \"username\": \"someuser4\",\n                \"text\": \"yes!\",\n                \"created_at\": \"2026-04-21T08:22:45.600601Z\",\n                \"updated_at\": \"2026-04-21T08:22:45.600601Z\",\n                \"is_owner\": false\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"book\": 198,\n        \"user\": 2,\n        \"user_id\": 2,\n        \"user_username\": \"someuser\",\n        \"book_title\": \"Neuromancer\",\n        \"text\": \"rmkre\",\n        \"rating\": 2,\n        \"created_at\": \"2026-04-21T07:29:38.576228Z\",\n        \"like_count\": 0,\n        \"is_liked\": false,\n        \"is_owner\": false,\n        \"comments\": []\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Add review",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Add review",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODAxMjM1LCJpYXQiOjE3NzY3OTc2MzUsImp0aSI6ImE4ODdhY2U3NjE1MjRjZWE4ZjNkOGRkZGU0M2ZmMDllIiwidXNlcl9pZCI6IjUifQ.h_NVJteDjT8Eku7zyTN02mFFNs2ACx8ZaSNnn8x_qkk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"text\": \"Great book!\",\r\n  \"rating\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/reviews/books/198/reviews/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "reviews",
+                "books",
+                "198",
+                "reviews",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 19:22:04 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "231"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 6,\n    \"book\": 198,\n    \"user\": 5,\n    \"user_id\": 5,\n    \"user_username\": \"testuser\",\n    \"book_title\": \"Neuromancer\",\n    \"text\": \"Great book!\",\n    \"rating\": 5,\n    \"created_at\": \"2026-04-21T19:22:04.592177Z\",\n    \"like_count\": 0,\n    \"is_liked\": false,\n    \"is_owner\": true,\n    \"comments\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "My reviews",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "My reviews",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODAxMjM1LCJpYXQiOjE3NzY3OTc2MzUsImp0aSI6ImE4ODdhY2U3NjE1MjRjZWE4ZjNkOGRkZGU0M2ZmMDllIiwidXNlcl9pZCI6IjUifQ.h_NVJteDjT8Eku7zyTN02mFFNs2ACx8ZaSNnn8x_qkk",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/reviews/my/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "reviews",
+                "my",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 19:23:21 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "233"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 6,\n        \"book\": 198,\n        \"user\": 5,\n        \"user_id\": 5,\n        \"user_username\": \"testuser\",\n        \"book_title\": \"Neuromancer\",\n        \"text\": \"Great book!\",\n        \"rating\": 5,\n        \"created_at\": \"2026-04-21T19:22:04.592177Z\",\n        \"like_count\": 0,\n        \"is_liked\": false,\n        \"is_owner\": true,\n        \"comments\": []\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Toggle favorite",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODAxMjM1LCJpYXQiOjE3NzY3OTc2MzUsImp0aSI6ImE4ODdhY2U3NjE1MjRjZWE4ZjNkOGRkZGU0M2ZmMDllIiwidXNlcl9pZCI6IjUifQ.h_NVJteDjT8Eku7zyTN02mFFNs2ACx8ZaSNnn8x_qkk",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"book_id\": 198\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/favorites/toggle/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "favorites",
+            "toggle",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Toggle favorite",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODAxMjM1LCJpYXQiOjE3NzY3OTc2MzUsImp0aSI6ImE4ODdhY2U3NjE1MjRjZWE4ZjNkOGRkZGU0M2ZmMDllIiwidXNlcl9pZCI6IjUifQ.h_NVJteDjT8Eku7zyTN02mFFNs2ACx8ZaSNnn8x_qkk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"book_id\": 198\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/favorites/toggle/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "favorites",
+                "toggle",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 21 Apr 2026 19:24:44 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.7"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "51"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"is_favorite\": true,\n    \"message\": \"Added to favorites\"\n}"
+        }
+      ]
+    }
+  ]
+}

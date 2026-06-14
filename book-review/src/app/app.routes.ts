@@ -7,6 +7,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthorsComponent } from './pages/authors/authors';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthorDetailComponent } from './pages/author-detail/author-detail';
+import { FavoritesComponent } from './pages/favorites/favorites';
+import { UserProfileComponent } from './pages/user-profile/user-profile';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'books', pathMatch: 'full' },
@@ -19,8 +21,10 @@ export const routes: Routes = [
 
     { path: 'books/:id', component: BookDetailComponent },
     { path: 'authors/:id', component: AuthorDetailComponent },
+    { path: 'users/:username', component: UserProfileComponent },
 
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard] },
 
-    { path: '**', redirectTo: 'books' } 
+    { path: '**', redirectTo: 'books' }
 ];

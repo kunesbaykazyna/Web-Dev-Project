@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'reviews'
 ]
 
-GEMINI_API_KEY = 'AIzaSyAKfix_TN9cStoRwXvu9SmqNBP7iz3-0bk'
+GEMINI_API_KEY = 'AIzaSyByvhwz_sLVqkKRN416EfLyVx-P9-z-9Xo'
+
 
 
 MIDDLEWARE = [
@@ -162,7 +163,26 @@ USE_TZ = True
 STATIC_URL = 'static/'
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
     "http://127.0.0.1:4200",
 
 ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:4200",
+]
+# Барын өзгерт немесе соңына қос:
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
+]
+
+# ОСЫ ЖОЛДАРДЫ МІНДЕТТІ ТҮРДЕ ҚОС:
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
+]
+
+CORS_ALLOW_CREDENTIALS = True

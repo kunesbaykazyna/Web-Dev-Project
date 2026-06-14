@@ -37,16 +37,46 @@ import { AuthService } from '../../services/auth.service';
           Create Account
         </button>
 
-        @if (errorMessage) { 
-          <p class="error"><i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage }}</p> 
+        @if (errorMessage) {
+          <p class="error">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            {{ errorMessage }}
+          </p>
         }
       </form>
 
       <div class="extra-links">
         <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+
+        <button class="home-btn" routerLink="/books">
+          ← Back to main page
+        </button>
       </div>
     </div>
-  `
+  `,
+  styles: [`
+    .extra-links{
+      margin-top:20px;
+      text-align:center;
+    }
+
+    .home-btn{
+      margin-top:14px;
+      background:#6b7280;
+      color:white;
+      border:none;
+      padding:10px 18px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:14px;
+      transition:0.3s;
+    }
+
+    .home-btn:hover{
+      background:#4b5563;
+      transform:translateY(-2px);
+    }
+  `]
 })
 export class RegisterComponent {
   private fb = inject(FormBuilder);
@@ -64,17 +94,22 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      const emailToSave = this.registerForm.value.email; 
+      const emailToSave = this.registerForm.value.email;
+
       this.authService.register(this.registerForm.value).subscribe({
         next: () => {
           if (emailToSave) {
-          localStorage.setItem('userEmail', emailToSave); 
-        }
-        alert('Регистрация прошла успешно!');
-        this.router.navigate(['/login']);
-      },
+            localStorage.setItem('userEmail', emailToSave);
+          }
+
+          alert('Регистрация прошла успешно!');
+          this.router.navigate(['/login']);
+        },
         error: (err) => {
-          this.errorMessage = err.error?.password?.[0] || err.error?.username?.[0] || 'Ошибка регистрации';
+          this.errorMessage =
+              err.error?.password?.[0] ||
+              err.error?.username?.[0] ||
+              'Ошибка регистрации';
         }
       });
     }

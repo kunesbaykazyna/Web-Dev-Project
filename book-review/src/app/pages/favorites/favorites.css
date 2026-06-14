@@ -1,0 +1,61 @@
+.favorites-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+}
+
+/* Кітаптардың қатарға әдемі тізілуі */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    /* Карточкаларды ортаға қою */
+}
+
+/* Тізім бос болғандағы стиль */
+.empty-state {
+    text-align: center;
+    padding: 100px 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 2px dashed #dee2e6;
+    margin-top: 20px;
+}
+
+.empty-state .icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 25px;
+}
+
+.browse-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #5cb3b1;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.browse-btn:hover {
+    background-color: #4a9694;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(92, 179, 177, 0.3);
+}
